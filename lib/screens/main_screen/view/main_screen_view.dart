@@ -7,10 +7,7 @@ class MainScreenView extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(
-          MediaQuery.of(context).size.height.toString(),
-          style: Theme.of(context).textTheme.titleLarge,
-        ),
+        title: Image.asset("assets/logos/Logo.png"),
         actions: const [],
       ),
     );
