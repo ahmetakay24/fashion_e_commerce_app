@@ -30,7 +30,7 @@ class AppTheme {
         bodySmall: const TextStyle(),
       ),
       appBarTheme: AppBarTheme(
-        toolbarHeight: sizeCalculator(size.height, 7.04),
+        toolbarHeight: sizeCalculator(size.height, 7.52),
       ),
     );
   }

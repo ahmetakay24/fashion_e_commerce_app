@@ -9,6 +9,7 @@ class AppColors {
   final Color line = const Color.fromRGBO(224, 207, 186, 1);
   final Color background = const Color.fromRGBO(248, 240, 231, 1);
   final Color offWhite = const Color.fromRGBO(252, 252, 252, 1);
+  final Color appBarColor = const Color.fromRGBO(231, 234, 239, 1);
   final Color primary = const Color.fromRGBO(168, 113, 90, 1);
   final Color secondary = const Color.fromRGBO(221, 133, 96, 1);
 }
