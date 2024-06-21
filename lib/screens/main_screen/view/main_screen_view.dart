@@ -9,11 +9,13 @@ import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
 class MainScreenView extends StatelessWidget {
   const MainScreenView({super.key});
-
   @override
   Widget build(BuildContext context) {
     AppColors colors = AppColors();
     DeviceSize size = DeviceSize(context);
+    MainScreenEnglishTexts englishTexts = MainScreenEnglishTexts();
+    var activeIndex = 0;
+
     return Scaffold(
       appBar: MainScreenAppBar(
         context: context,
@@ -88,8 +90,54 @@ class MainScreenView extends StatelessWidget {
             SizedBox(
               height: sizeCalculator(size.height, 4.51),
               width: size.width,
-              child: Row(
-                //All,Apparel... Buttons will added
+              child: Column(
+                children: [
+                  Padding(
+                    padding: EdgeInsets.only(
+                        top: sizeCalculator(size.height, 1.12), left: sizeCalculator(size.width, 11.33), right: 10.79),
+                    child: Row(
+                      children: [
+                        SizedBox(
+                            height: sizeCalculator(size.height, 1.88),
+                            width: sizeCalculator(size.width, 5.59),
+                            child: FittedBox(
+                                fit: BoxFit.fitWidth, child: InkWell(onTap: null, child: Text(englishTexts.all)))),
+                        Padding(
+                          padding: EdgeInsets.symmetric(horizontal: sizeCalculator(size.width, 6.93)),
+                          child: SizedBox(
+                              height: sizeCalculator(size.height, 1.88),
+                              width: sizeCalculator(size.width, 15.73),
+                              child: FittedBox(
+                                  fit: BoxFit.fitWidth,
+                                  child: InkWell(onTap: null, child: Text(englishTexts.apparel)))),
+                        ),
+                        SizedBox(
+                            height: sizeCalculator(size.height, 1.88),
+                            width: sizeCalculator(size.width, 11.19),
+                            child: FittedBox(
+                                fit: BoxFit.fitWidth, child: InkWell(onTap: null, child: Text(englishTexts.suits)))),
+                        Padding(
+                          padding: EdgeInsets.symmetric(horizontal: sizeCalculator(size.width, 6.93)),
+                          child: SizedBox(
+                              height: sizeCalculator(size.height, 1.88),
+                              width: sizeCalculator(size.width, 11.19),
+                              child: FittedBox(
+                                  fit: BoxFit.fitWidth, child: InkWell(onTap: null, child: Text(englishTexts.tshirt)))),
+                        ),
+                        SizedBox(
+                            height: sizeCalculator(size.height, 1.88),
+                            width: sizeCalculator(size.width, 7.46),
+                            child: FittedBox(
+                                fit: BoxFit.fitWidth, child: InkWell(onTap: null, child: Text(englishTexts.bag)))),
+                      ],
+                    ),
+                  ),
+                  SizedBox(
+                    height: sizeCalculator(size.height, 1.5),
+                    width: sizeCalculator(size.width, 77.33),
+                    //Indicator will added
+                  )
+                ],
               ),
             ),
             Container(
@@ -102,6 +150,14 @@ class MainScreenView extends StatelessWidget {
       ),
     );
   }
+}
+
+class MainScreenEnglishTexts {
+  final String all = "All";
+  final String apparel = "Apparel";
+  final String suits = "Suits";
+  final String tshirt = "Tshirt";
+  final String bag = "Bag";
 }
 
 class MainScreenBanner extends StatefulWidget {
