@@ -4,6 +4,7 @@ import 'package:carousel_slider/carousel_slider.dart';
 import 'package:fashion_e_commerce_app/core/colors/core_app_colors.dart';
 import 'package:fashion_e_commerce_app/core/size/device_size.dart';
 import 'package:fashion_e_commerce_app/core/widgets/app_images.dart';
+import 'package:fashion_e_commerce_app/screens/main_screen/model/main_screen_models.dart';
 import 'package:flutter/material.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
@@ -14,7 +15,29 @@ class MainScreenView extends StatelessWidget {
     AppColors colors = AppColors();
     DeviceSize size = DeviceSize(context);
     MainScreenEnglishTexts englishTexts = MainScreenEnglishTexts();
-    var activeIndex = 0;
+
+    List clothes = [
+      {
+        "Wool Silk Tailored",
+        "\$ 1700",
+        "https://assets.burberry.com/is/image/Burberryltd/C0EB0D1E-9CF7-462B-AE9E-1A862BDF0FA5?\$BBY_V3_ML_1\$&wid=2500&hei=2500"
+      },
+      {
+        "Check Jacquard Weekend Bag",
+        "\$ 1750",
+        "https://assets.burberry.com/is/image/Burberryltd/969CBFE0-9823-4E36-B4B2-E4D78D046157?\$BBY_V3_SL_1\$&wid=2500&hei=2500"
+      },
+      {
+        "Striped Cotton T-shirt",
+        "\$ 650",
+        "https://assets.burberry.com/is/image/Burberryltd/626E7CDC-D03B-4FB4-AD9A-8C48C23711C5?\$BBY_V3_SL_1\$&wid=2500&hei=2500"
+      },
+      {
+        "Wool Pants",
+        "\$ 1450",
+        "https://assets.burberry.com/is/image/Burberryltd/24914A97-AF84-4094-8BB4-782BA3BEE40F?\$BBY_V3_SL_1\$&wid=2500&hei=2500"
+      }
+    ];
 
     return Scaffold(
       appBar: MainScreenAppBar(
@@ -94,7 +117,9 @@ class MainScreenView extends StatelessWidget {
                 children: [
                   Padding(
                     padding: EdgeInsets.only(
-                        top: sizeCalculator(size.height, 1.12), left: sizeCalculator(size.width, 11.33), right: 10.79),
+                        top: sizeCalculator(size.height, 1.12),
+                        left: sizeCalculator(size.width, 11.33),
+                        right: sizeCalculator(size.width, 11.33)),
                     child: Row(
                       children: [
                         Column(
@@ -110,10 +135,9 @@ class MainScreenView extends StatelessWidget {
                           padding: EdgeInsets.symmetric(horizontal: sizeCalculator(size.width, 6.93)),
                           child: SizedBox(
                               height: sizeCalculator(size.height, 1.88),
-                              width: sizeCalculator(size.width, 15.73),
+                              width: sizeCalculator(size.width, 11.19),
                               child: FittedBox(
-                                  fit: BoxFit.fitWidth,
-                                  child: InkWell(onTap: null, child: Text(englishTexts.apparel)))),
+                                  fit: BoxFit.fitWidth, child: InkWell(onTap: null, child: Text(englishTexts.pants)))),
                         ),
                         SizedBox(
                             height: sizeCalculator(size.height, 1.88),
@@ -148,34 +172,34 @@ class MainScreenView extends StatelessWidget {
                             child: Container(
                               width: 5.7,
                               height: 5.7,
-                              decoration: const BoxDecoration(
-                                color: Colors.blue,
+                              decoration: BoxDecoration(
+                                color: colors.secondary,
                               ),
                             ),
                           ),
                         ),
                         Padding(
-                          padding: const EdgeInsets.only(left: 63),
+                          padding: const EdgeInsets.only(left: 55),
                           child: Transform.rotate(
                             angle: 0.785398,
                             child: Container(
                               width: 5.7,
                               height: 5.7,
-                              decoration: const BoxDecoration(
-                                color: Colors.blue,
+                              decoration: BoxDecoration(
+                                color: colors.secondary,
                               ),
                             ),
                           ),
                         ),
                         Padding(
-                          padding: const EdgeInsets.only(left: 75),
+                          padding: const EdgeInsets.only(left: 65),
                           child: Transform.rotate(
                             angle: 0.785398,
                             child: Container(
                               width: 5.7,
                               height: 5.7,
-                              decoration: const BoxDecoration(
-                                color: Colors.blue,
+                              decoration: BoxDecoration(
+                                color: colors.secondary,
                               ),
                             ),
                           ),
@@ -187,8 +211,8 @@ class MainScreenView extends StatelessWidget {
                             child: Container(
                               width: 5.7,
                               height: 5.7,
-                              decoration: const BoxDecoration(
-                                color: Colors.blue,
+                              decoration: BoxDecoration(
+                                color: colors.secondary,
                               ),
                             ),
                           ),
@@ -200,8 +224,8 @@ class MainScreenView extends StatelessWidget {
                             child: Container(
                               width: 5.7,
                               height: 5.7,
-                              decoration: const BoxDecoration(
-                                color: Colors.blue,
+                              decoration: BoxDecoration(
+                                color: colors.secondary,
                               ),
                             ),
                           ),
@@ -212,6 +236,7 @@ class MainScreenView extends StatelessWidget {
                 ],
               ),
             ),
+            //SizedBox(height: sizeCalculator(size.height, 51.44),width: size.width,child: GridView(),),
             Container(
               height: 100,
               width: 100,
@@ -226,7 +251,7 @@ class MainScreenView extends StatelessWidget {
 
 class MainScreenEnglishTexts {
   final String all = "All";
-  final String apparel = "Apparel";
+  final String pants = "Pants";
   final String suits = "Suits";
   final String tshirt = "Tshirt";
   final String bag = "Bag";
