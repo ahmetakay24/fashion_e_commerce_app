@@ -97,11 +97,15 @@ class MainScreenView extends StatelessWidget {
                         top: sizeCalculator(size.height, 1.12), left: sizeCalculator(size.width, 11.33), right: 10.79),
                     child: Row(
                       children: [
-                        SizedBox(
-                            height: sizeCalculator(size.height, 1.88),
-                            width: sizeCalculator(size.width, 5.59),
-                            child: FittedBox(
-                                fit: BoxFit.fitWidth, child: InkWell(onTap: null, child: Text(englishTexts.all)))),
+                        Column(
+                          children: [
+                            SizedBox(
+                                height: sizeCalculator(size.height, 1.88),
+                                width: sizeCalculator(size.width, 5.59),
+                                child: FittedBox(
+                                    fit: BoxFit.fitWidth, child: InkWell(onTap: null, child: Text(englishTexts.all)))),
+                          ],
+                        ),
                         Padding(
                           padding: EdgeInsets.symmetric(horizontal: sizeCalculator(size.width, 6.93)),
                           child: SizedBox(
@@ -135,7 +139,75 @@ class MainScreenView extends StatelessWidget {
                   SizedBox(
                     height: sizeCalculator(size.height, 1.5),
                     width: sizeCalculator(size.width, 77.33),
-                    //Indicator will added
+                    child: Row(
+                      children: [
+                        Padding(
+                          padding: const EdgeInsets.only(left: 10),
+                          child: Transform.rotate(
+                            angle: 0.785398,
+                            child: Container(
+                              width: 5.7,
+                              height: 5.7,
+                              decoration: const BoxDecoration(
+                                color: Colors.blue,
+                              ),
+                            ),
+                          ),
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.only(left: 63),
+                          child: Transform.rotate(
+                            angle: 0.785398,
+                            child: Container(
+                              width: 5.7,
+                              height: 5.7,
+                              decoration: const BoxDecoration(
+                                color: Colors.blue,
+                              ),
+                            ),
+                          ),
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.only(left: 75),
+                          child: Transform.rotate(
+                            angle: 0.785398,
+                            child: Container(
+                              width: 5.7,
+                              height: 5.7,
+                              decoration: const BoxDecoration(
+                                color: Colors.blue,
+                              ),
+                            ),
+                          ),
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.only(left: 65.5),
+                          child: Transform.rotate(
+                            angle: 0.785398,
+                            child: Container(
+                              width: 5.7,
+                              height: 5.7,
+                              decoration: const BoxDecoration(
+                                color: Colors.blue,
+                              ),
+                            ),
+                          ),
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.only(left: 57),
+                          child: Transform.rotate(
+                            angle: 0.785398,
+                            child: Container(
+                              width: 5.7,
+                              height: 5.7,
+                              decoration: const BoxDecoration(
+                                color: Colors.blue,
+                              ),
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
                   )
                 ],
               ),
