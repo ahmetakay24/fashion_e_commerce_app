@@ -1,3 +1,4 @@
+import 'package:fashion_e_commerce_app/screens/main_screen/model/main_screen_models.dart';
 import 'package:fashion_e_commerce_app/screens/main_screen/view/main_screen_view.dart';
 import 'package:fashion_e_commerce_app/theme/app_theme.dart';
 import 'package:flutter/material.dart';

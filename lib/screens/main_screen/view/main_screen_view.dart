@@ -16,27 +16,31 @@ class MainScreenView extends StatelessWidget {
     DeviceSize size = DeviceSize(context);
     MainScreenEnglishTexts englishTexts = MainScreenEnglishTexts();
 
-    List clothes = [
-      {
-        "Wool Silk Tailored",
-        "\$ 1700",
-        "https://assets.burberry.com/is/image/Burberryltd/C0EB0D1E-9CF7-462B-AE9E-1A862BDF0FA5?\$BBY_V3_ML_1\$&wid=2500&hei=2500"
-      },
-      {
-        "Check Jacquard Weekend Bag",
-        "\$ 1750",
-        "https://assets.burberry.com/is/image/Burberryltd/969CBFE0-9823-4E36-B4B2-E4D78D046157?\$BBY_V3_SL_1\$&wid=2500&hei=2500"
-      },
-      {
-        "Striped Cotton T-shirt",
-        "\$ 650",
-        "https://assets.burberry.com/is/image/Burberryltd/626E7CDC-D03B-4FB4-AD9A-8C48C23711C5?\$BBY_V3_SL_1\$&wid=2500&hei=2500"
-      },
-      {
-        "Wool Pants",
-        "\$ 1450",
-        "https://assets.burberry.com/is/image/Burberryltd/24914A97-AF84-4094-8BB4-782BA3BEE40F?\$BBY_V3_SL_1\$&wid=2500&hei=2500"
-      }
+    List<MainScreenClothesModel> clothes = [
+      MainScreenClothesModel(
+        name: "Burberry Wool Silk Tailored",
+        price: "\$ 1700",
+        imageUrl:
+            "https://assets.burberry.com/is/image/Burberryltd/C0EB0D1E-9CF7-462B-AE9E-1A862BDF0FA5?\$BBY_V3_ML_1\$&wid=2500&hei=2500",
+      ),
+      MainScreenClothesModel(
+        name: "Burberry Check Jacquard Weekend Bag",
+        price: "\$ 1750",
+        imageUrl:
+            "https://assets.burberry.com/is/image/Burberryltd/969CBFE0-9823-4E36-B4B2-E4D78D046157?\$BBY_V3_SL_1\$&wid=2500&hei=2500",
+      ),
+      MainScreenClothesModel(
+        name: "Burberry Striped Cotton T-shirt",
+        price: "\$ 650",
+        imageUrl:
+            "https://assets.burberry.com/is/image/Burberryltd/626E7CDC-D03B-4FB4-AD9A-8C48C23711C5?\$BBY_V3_SL_1\$&wid=2500&hei=2500",
+      ),
+      MainScreenClothesModel(
+        name: "Burberry Wool Pants",
+        price: "\$ 1450",
+        imageUrl:
+            "https://assets.burberry.com/is/image/Burberryltd/24914A97-AF84-4094-8BB4-782BA3BEE40F?\$BBY_V3_SL_1\$&wid=2500&hei=2500",
+      ),
     ];
 
     return Scaffold(
@@ -236,7 +240,54 @@ class MainScreenView extends StatelessWidget {
                 ],
               ),
             ),
-            //SizedBox(height: sizeCalculator(size.height, 51.44),width: size.width,child: GridView(),),
+            Padding(
+              padding: EdgeInsets.only(
+                top: sizeCalculator(size.height, 1.63),
+                bottom: sizeCalculator(size.height, 1.48),
+                left: sizeCalculator(size.width, 2.0),
+                right: sizeCalculator(size.width, 2.0),
+              ),
+              child: SizedBox(
+                height: sizeCalculator(size.height, 51.44),
+                width: size.width,
+                child: GridView.builder(
+                  itemCount: clothes.length >= 4 ? 4 : clothes.length,
+                  gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                    crossAxisCount: 2,
+                    mainAxisSpacing: sizeCalculator(size.height, 1.5),
+                    crossAxisSpacing: sizeCalculator(size.width, 3.19),
+                    childAspectRatio: (size.width / 2) / sizeCalculator(size.height, 25.09),
+                  ),
+                  itemBuilder: (context, index) {
+                    return Column(
+                      children: [
+                        SizedBox(
+                          height: sizeCalculator(DeviceSize(context).height, 17.54),
+                          width: sizeCalculator(DeviceSize(context).width, 43.99),
+                          child: CachedNetworkImage(fit: BoxFit.contain, imageUrl: clothes[index].imageUrl),
+                        ),
+                        SizedBox(
+                          height: sizeCalculator(DeviceSize(context).height, 4.01),
+                          width: sizeCalculator(DeviceSize(context).width, 40.29),
+                          child: FittedBox(
+                            fit: BoxFit.fitWidth,
+                            child: Text(
+                              clothes[index].name,
+                              style: Theme.of(context).textTheme.bodySmall,
+                            ),
+                          ),
+                        ),
+                        SizedBox(
+                          height: sizeCalculator(DeviceSize(context).width, 3.01),
+                          width: sizeCalculator(DeviceSize(context).width, 8.53),
+                          child: FittedBox(fit: BoxFit.fitWidth, child: Text(clothes[index].price)),
+                        )
+                      ],
+                    );
+                  },
+                ),
+              ),
+            ),
             Container(
               height: 100,
               width: 100,
@@ -248,6 +299,11 @@ class MainScreenView extends StatelessWidget {
     );
   }
 }
+
+/*left: sizeCalculator(size.width, 4.26),
+                right: sizeCalculator(size.width, 4.26),
+                top: sizeCalculator(size.height, 1.63),
+                bottom: sizeCalculator(size.height, 1.48), */
 
 class MainScreenEnglishTexts {
   final String all = "All";
