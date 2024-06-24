@@ -18,28 +18,24 @@ class MainScreenView extends StatelessWidget {
 
     List<MainScreenClothesModel> clothes = [
       MainScreenClothesModel(
-        name: "Burberry Wool Silk Tailored",
-        price: "\$ 1700",
-        imageUrl:
-            "https://assets.burberry.com/is/image/Burberryltd/C0EB0D1E-9CF7-462B-AE9E-1A862BDF0FA5?\$BBY_V3_ML_1\$&wid=2500&hei=2500",
+        name: "WOOL AND SILK MARTINI-FIT TUXEDO SUIT",
+        price: "\$ 4,195",
+        imageUrl: "assets/clothes/dc_suit.png",
       ),
       MainScreenClothesModel(
-        name: "Burberry Check Jacquard Weekend Bag",
-        price: "\$ 1750",
-        imageUrl:
-            "https://assets.burberry.com/is/image/Burberryltd/969CBFE0-9823-4E36-B4B2-E4D78D046157?\$BBY_V3_SL_1\$&wid=2500&hei=2500",
+        name: "PRINTED JACQUARD HOLDALL",
+        price: "\$ 2,495",
+        imageUrl: "assets/clothes/dc_bag.png",
       ),
       MainScreenClothesModel(
-        name: "Burberry Striped Cotton T-shirt",
-        price: "\$ 650",
-        imageUrl:
-            "https://assets.burberry.com/is/image/Burberryltd/626E7CDC-D03B-4FB4-AD9A-8C48C23711C5?\$BBY_V3_SL_1\$&wid=2500&hei=2500",
+        name: "COTTON T-SHIRT WITH LOGO EMBROIDERY",
+        price: "\$ 595",
+        imageUrl: "assets/clothes/dc_tshirt.png",
       ),
       MainScreenClothesModel(
-        name: "Burberry Wool Pants",
-        price: "\$ 1450",
-        imageUrl:
-            "https://assets.burberry.com/is/image/Burberryltd/24914A97-AF84-4094-8BB4-782BA3BEE40F?\$BBY_V3_SL_1\$&wid=2500&hei=2500",
+        name: "STRETCH COTTON PANTS WITH BRANDED TAG",
+        price: "\$ 825",
+        imageUrl: "assets/clothes/dc_pant.png",
       ),
     ];
 
@@ -259,30 +255,37 @@ class MainScreenView extends StatelessWidget {
                     childAspectRatio: (size.width / 2) / sizeCalculator(size.height, 25.09),
                   ),
                   itemBuilder: (context, index) {
-                    return Column(
-                      children: [
-                        SizedBox(
-                          height: sizeCalculator(DeviceSize(context).height, 17.54),
-                          width: sizeCalculator(DeviceSize(context).width, 43.99),
-                          child: CachedNetworkImage(fit: BoxFit.contain, imageUrl: clothes[index].imageUrl),
-                        ),
-                        SizedBox(
-                          height: sizeCalculator(DeviceSize(context).height, 4.01),
-                          width: sizeCalculator(DeviceSize(context).width, 40.29),
-                          child: FittedBox(
-                            fit: BoxFit.fitWidth,
-                            child: Text(
-                              clothes[index].name,
-                              style: Theme.of(context).textTheme.bodySmall,
+                    return SizedBox(
+                      height: sizeCalculator(DeviceSize(context).height, 25.09),
+                      width: sizeCalculator(DeviceSize(context).width, 43.99),
+                      child: Column(
+                        children: [
+                          SizedBox(
+                            height: sizeCalculator(DeviceSize(context).height, 17.54),
+                            width: sizeCalculator(DeviceSize(context).width, 43.99),
+                            child: Image.asset(
+                              clothes[index].imageUrl,
+                              fit: BoxFit.contain,
                             ),
                           ),
-                        ),
-                        SizedBox(
-                          height: sizeCalculator(DeviceSize(context).width, 3.01),
-                          width: sizeCalculator(DeviceSize(context).width, 8.53),
-                          child: FittedBox(fit: BoxFit.fitWidth, child: Text(clothes[index].price)),
-                        )
-                      ],
+                          SizedBox(
+                            height: sizeCalculator(DeviceSize(context).height, 4.01),
+                            width: sizeCalculator(DeviceSize(context).width, 40.29),
+                            child: FittedBox(
+                              fit: BoxFit.fitWidth,
+                              child: Text(
+                                clothes[index].name,
+                                style: Theme.of(context).textTheme.bodySmall,
+                              ),
+                            ),
+                          ),
+                          SizedBox(
+                            height: sizeCalculator(DeviceSize(context).width, 3.01),
+                            width: sizeCalculator(DeviceSize(context).width, 8.53),
+                            child: FittedBox(fit: BoxFit.fitWidth, child: Text(clothes[index].price)),
+                          )
+                        ],
+                      ),
                     );
                   },
                 ),
