@@ -1,5 +1,6 @@
 import 'package:fashion_e_commerce_app/core/colors/core_app_colors.dart';
 import 'package:fashion_e_commerce_app/core/size/device_size.dart';
+import 'package:fashion_e_commerce_app/core/widgets/app_custom_widgets.dart';
 import 'package:fashion_e_commerce_app/core/widgets/app_images.dart';
 import 'package:fashion_e_commerce_app/resources/texts/main_screen/main_screen_texts_english.dart';
 import 'package:fashion_e_commerce_app/screens/main_screen/model/main_screen_models.dart';
@@ -64,7 +65,7 @@ class MainScreenView extends StatelessWidget {
                   bottom: sizeCalculator(size.height, 1.71),
                   left: sizeCalculator(size.width, 33.19),
                   right: sizeCalculator(size.width, 33.19)),
-              child: MainScreenNewArrivalTitleLine(
+              child: AppHeaderLine(
                 colors: colors,
                 size: size,
               ),
@@ -80,10 +81,111 @@ class MainScreenView extends StatelessWidget {
             SizedBox(
               height: sizeCalculator(size.height, 6.02),
               width: sizeCalculator(size.width, 41.33),
-              child: const InkWell(
+              child: InkWell(
                 child: Row(
+                  //4,79
+                  //2,25
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                  children: [Text("Explore More"), AppIcons(icon: "forward_arrow")],
+                  children: [
+                    SizedBox(
+                        height: sizeCalculator(size.height, 3.01),
+                        width: sizeCalculator(size.width, 27.99),
+                        child: const FittedBox(fit: BoxFit.fitWidth, child: Text("Explore More"))),
+                    SizedBox(
+                        height: sizeCalculator(size.height, 2.25),
+                        width: sizeCalculator(size.width, 4.79),
+                        child: const FittedBox(fit: BoxFit.cover, child: AppIcons(icon: "forward_arrow")))
+                  ],
+                ),
+              ),
+            ),
+            Padding(
+              padding: EdgeInsets.only(top: sizeCalculator(size.height, 6.02)),
+              child: AppHeaderLine(size: size, colors: colors),
+            ),
+            SizedBox(
+              height: sizeCalculator(size.height, 17.35),
+              width: size.width,
+              child: Padding(
+                padding: EdgeInsets.symmetric(horizontal: sizeCalculator(size.width, 5.59)),
+                child: const Column(
+                  children: [
+                    Spacer(),
+                    Expanded(
+                      flex: 3,
+                      child: Row(
+                        children: [
+                          Expanded(flex: 4, child: AppLogos(logo: "dolce_gabbana")),
+                          Spacer(),
+                          Expanded(flex: 4, child: AppLogos(logo: "burberry")),
+                          Spacer(),
+                          Expanded(flex: 4, child: AppLogos(logo: "boss"))
+                        ],
+                      ),
+                    ),
+                    Spacer(),
+                    Expanded(
+                      flex: 3,
+                      child: Row(
+                        children: [
+                          Expanded(flex: 4, child: AppLogos(logo: "cartier")),
+                          Spacer(),
+                          Expanded(flex: 4, child: AppLogos(logo: "gucci")),
+                          Spacer(),
+                          Expanded(flex: 4, child: AppLogos(logo: "balmain"))
+                        ],
+                      ),
+                    ),
+                    Spacer()
+                  ],
+                ),
+              ),
+            ),
+            AppHeaderLine(size: size, colors: colors),
+            Padding(
+              padding: EdgeInsets.only(top: sizeCalculator(size.height, 7.42), bottom: sizeCalculator(size.height, 2)),
+              child: SizedBox(
+                height: sizeCalculator(size.height, 5.01),
+                width: sizeCalculator(size.width, 47.19),
+                child: const FittedBox(fit: BoxFit.fitWidth, child: Text("COLLECTIONS")),
+              ),
+            ),
+            SizedBox(
+              height: sizeCalculator(size.height, 30.11),
+              width: size.width,
+              child: Image.asset(fit: BoxFit.cover, "assets/banners/october_collection.png"),
+            ),
+            Padding(
+              padding: EdgeInsets.only(top: sizeCalculator(size.height, 5.01)),
+              child: SizedBox(
+                height: sizeCalculator(size.height, 37.13),
+                width: sizeCalculator(size.width, 69.33),
+                //padding will come
+                child: Stack(
+                  children: [
+                    Image.asset(fit: BoxFit.cover, "assets/banners/autumn_collection.png"),
+                    SizedBox(
+                      height: sizeCalculator(size.height, 7.89),
+                      width: sizeCalculator(size.width, 45.99),
+                      child: const Column(
+                        crossAxisAlignment: CrossAxisAlignment.end,
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        children: [
+                          Expanded(
+                            flex: 3,
+                            child: FittedBox(
+                              fit: BoxFit.fitWidth,
+                              child: Text(
+                                "Autumn",
+                                style: TextStyle(/*Family style Bodoni Moda */),
+                              ),
+                            ),
+                          ),
+                          Expanded(child: FittedBox(fit: BoxFit.fitWidth, child: Text("COLLECTION")))
+                        ],
+                      ),
+                    )
+                  ],
                 ),
               ),
             ),
@@ -164,7 +266,3 @@ class MainScreenClothesGridView extends StatelessWidget {
                 right: sizeCalculator(size.width, 4.26),
                 top: sizeCalculator(size.height, 1.63),
                 bottom: sizeCalculator(size.height, 1.48), */
-
-
-
-
