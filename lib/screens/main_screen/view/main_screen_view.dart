@@ -1,10 +1,11 @@
 import 'package:fashion_e_commerce_app/core/colors/core_app_colors.dart';
 import 'package:fashion_e_commerce_app/core/size/device_size.dart';
 import 'package:fashion_e_commerce_app/core/widgets/app_custom_widgets.dart';
-import 'package:fashion_e_commerce_app/core/widgets/app_images.dart';
 import 'package:fashion_e_commerce_app/resources/texts/main_screen/main_screen_texts_english.dart';
 import 'package:fashion_e_commerce_app/screens/main_screen/model/main_screen_models.dart';
 import 'package:fashion_e_commerce_app/screens/main_screen/view/widgets/app_bar_and_sections/main_screen_app_bar_and_sections.dart';
+import 'package:fashion_e_commerce_app/screens/main_screen/view/widgets/builders/main_screen_builders.dart';
+import 'package:fashion_e_commerce_app/screens/main_screen/view/widgets/buttons/main_screen_buttons.dart';
 import 'package:flutter/material.dart';
 
 class MainScreenView extends StatelessWidget {
@@ -81,23 +82,7 @@ class MainScreenView extends StatelessWidget {
             SizedBox(
               height: sizeCalculator(size.height, 6.02),
               width: sizeCalculator(size.width, 41.33),
-              child: InkWell(
-                child: Row(
-                  //4,79
-                  //2,25
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                  children: [
-                    SizedBox(
-                        height: sizeCalculator(size.height, 3.01),
-                        width: sizeCalculator(size.width, 27.99),
-                        child: const FittedBox(fit: BoxFit.fitWidth, child: Text("Explore More"))),
-                    SizedBox(
-                        height: sizeCalculator(size.height, 2.25),
-                        width: sizeCalculator(size.width, 4.79),
-                        child: const FittedBox(fit: BoxFit.cover, child: AppIcons(icon: "forward_arrow")))
-                  ],
-                ),
-              ),
+              child: MainScreenExploreMoreButton(size: size),
             ),
             Padding(
               padding: EdgeInsets.only(top: sizeCalculator(size.height, 6.02)),
@@ -108,47 +93,13 @@ class MainScreenView extends StatelessWidget {
               width: size.width,
               child: Padding(
                 padding: EdgeInsets.symmetric(horizontal: sizeCalculator(size.width, 5.59)),
-                child: const Column(
-                  children: [
-                    Spacer(),
-                    Expanded(
-                      flex: 3,
-                      child: Row(
-                        children: [
-                          Expanded(flex: 4, child: AppLogos(logo: "dolce_gabbana")),
-                          Spacer(),
-                          Expanded(flex: 4, child: AppLogos(logo: "burberry")),
-                          Spacer(),
-                          Expanded(flex: 4, child: AppLogos(logo: "boss"))
-                        ],
-                      ),
-                    ),
-                    Spacer(),
-                    Expanded(
-                      flex: 3,
-                      child: Row(
-                        children: [
-                          Expanded(flex: 4, child: AppLogos(logo: "cartier")),
-                          Spacer(),
-                          Expanded(flex: 4, child: AppLogos(logo: "gucci")),
-                          Spacer(),
-                          Expanded(flex: 4, child: AppLogos(logo: "balmain"))
-                        ],
-                      ),
-                    ),
-                    Spacer()
-                  ],
-                ),
+                child: const MainScreenBrandLogos(),
               ),
             ),
             AppHeaderLine(size: size, colors: colors),
             Padding(
               padding: EdgeInsets.only(top: sizeCalculator(size.height, 7.42), bottom: sizeCalculator(size.height, 2)),
-              child: SizedBox(
-                height: sizeCalculator(size.height, 5.01),
-                width: sizeCalculator(size.width, 47.19),
-                child: const FittedBox(fit: BoxFit.fitWidth, child: Text("COLLECTIONS")),
-              ),
+              child: MainScreenCollectionsTitle(size: size),
             ),
             SizedBox(
               height: sizeCalculator(size.height, 30.11),
@@ -156,39 +107,61 @@ class MainScreenView extends StatelessWidget {
               child: Image.asset(fit: BoxFit.cover, "assets/banners/october_collection.png"),
             ),
             Padding(
-              padding: EdgeInsets.only(top: sizeCalculator(size.height, 5.01)),
+              padding:
+                  EdgeInsets.only(top: sizeCalculator(size.height, 5.01), bottom: sizeCalculator(size.height, 5.01)),
               child: SizedBox(
                 height: sizeCalculator(size.height, 37.13),
                 width: sizeCalculator(size.width, 69.33),
-                //padding will come
-                child: Stack(
-                  children: [
-                    Image.asset(fit: BoxFit.cover, "assets/banners/autumn_collection.png"),
-                    SizedBox(
-                      height: sizeCalculator(size.height, 7.89),
-                      width: sizeCalculator(size.width, 45.99),
-                      child: const Column(
-                        crossAxisAlignment: CrossAxisAlignment.end,
-                        mainAxisAlignment: MainAxisAlignment.start,
-                        children: [
-                          Expanded(
-                            flex: 3,
-                            child: FittedBox(
-                              fit: BoxFit.fitWidth,
-                              child: Text(
-                                "Autumn",
-                                style: TextStyle(/*Family style Bodoni Moda */),
-                              ),
-                            ),
-                          ),
-                          Expanded(child: FittedBox(fit: BoxFit.fitWidth, child: Text("COLLECTION")))
-                        ],
-                      ),
-                    )
-                  ],
+                child: MainScreenAutumnCollectionBanner(size: size),
+              ),
+            ),
+            Padding(
+              padding: EdgeInsets.only(bottom: sizeCalculator(size.height, 9.02)),
+              child: SizedBox(
+                height: sizeCalculator(size.height, 22.08),
+                width: size.width,
+                child: Image.asset(
+                  "assets/banners/dc_collection.png",
+                  fit: BoxFit.cover,
                 ),
               ),
             ),
+            SizedBox(
+              height: sizeCalculator(size.height, 5.01),
+              width: sizeCalculator(size.width, 48.53),
+              child: const FittedBox(fit: BoxFit.fitWidth, child: Text("JUST FOR YOU")),
+            ),
+            AppHeaderLine(size: size, colors: colors),
+            /*SizedBox(
+              height: sizeCalculator(size.height, 47.75),
+              width: size.width,
+              child: Column(
+                children: [
+                  CarouselSlider.builder(
+              itemCount: 3,
+              itemBuilder: (context, index, realIndex) {
+                return Container(
+                  height: sizeCalculator(widget.size.height, 75.28),
+                  width: widget.size.width,
+                  color: widget.colors.appBarColor,
+                  child: CachedNetworkImage(
+                    imageUrl: imageList[index],
+                    fit: BoxFit.cover,
+                  ),
+                );
+              },
+              options: CarouselOptions(
+                  height: sizeCalculator(widget.size.height, 75.28),
+                  //If I make photos full cover
+                  //viewportFraction: 1,
+                  onPageChanged: (index, reason) => setState(() {
+                        activeIndex = index;
+                      }),
+                  autoPlay: true,
+                  autoPlayInterval: const Duration(seconds: 5)))
+                ],
+              ),
+            ),*/
             Container(
               height: 100,
               width: 100,
@@ -200,69 +173,3 @@ class MainScreenView extends StatelessWidget {
     );
   }
 }
-
-class MainScreenClothesGridView extends StatelessWidget {
-  const MainScreenClothesGridView({
-    super.key,
-    required this.size,
-    required this.clothes,
-  });
-
-  final DeviceSize size;
-  final List<MainScreenClothesModel> clothes;
-
-  @override
-  Widget build(BuildContext context) {
-    return SizedBox(
-      height: sizeCalculator(size.height, 69.91),
-      width: size.width,
-      child: GridView.builder(
-        physics: const NeverScrollableScrollPhysics(),
-        itemCount: clothes.length >= 4 ? 4 : clothes.length,
-        gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-          crossAxisCount: 2,
-          mainAxisSpacing: sizeCalculator(size.height, 1.5),
-          childAspectRatio: (size.width / 2) / sizeCalculator(size.height, 32.64),
-        ),
-        itemBuilder: (context, index) {
-          return SizedBox(
-            height: sizeCalculator(DeviceSize(context).height, 32.64),
-            width: sizeCalculator(DeviceSize(context).width, 43.99),
-            child: Column(
-              children: [
-                SizedBox(
-                  height: sizeCalculator(DeviceSize(context).height, 25.09),
-                  width: sizeCalculator(DeviceSize(context).width, 43.99),
-                  child: Image.asset(
-                    fit: BoxFit.cover,
-                    clothes[index].imageUrl,
-                  ),
-                ),
-                SizedBox(
-                  height: sizeCalculator(DeviceSize(context).height, 4.76),
-                  width: sizeCalculator(DeviceSize(context).width, 43.99),
-                  child: FittedBox(
-                    child: Text(
-                      clothes[index].name,
-                      style: Theme.of(context).textTheme.bodySmall,
-                    ),
-                  ),
-                ),
-                SizedBox(
-                  height: sizeCalculator(DeviceSize(context).width, 3.01),
-                  width: sizeCalculator(DeviceSize(context).width, 8.53),
-                  child: FittedBox(fit: BoxFit.fitWidth, child: Text(clothes[index].price)),
-                )
-              ],
-            ),
-          );
-        },
-      ),
-    );
-  }
-}
-
-/*left: sizeCalculator(size.width, 4.26),
-                right: sizeCalculator(size.width, 4.26),
-                top: sizeCalculator(size.height, 1.63),
-                bottom: sizeCalculator(size.height, 1.48), */
