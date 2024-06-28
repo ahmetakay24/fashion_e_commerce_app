@@ -1,5 +1,7 @@
+import 'package:fashion_e_commerce_app/core/colors/core_app_colors.dart';
 import 'package:fashion_e_commerce_app/core/size/device_size.dart';
 import 'package:flutter/material.dart';
+import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
 class MainScreenClothesModel {
   final String name;
@@ -13,9 +15,15 @@ class MainScreenClothesModel {
   });
 }
 
-class Deneme extends StatelessWidget {
+class Deneme extends StatefulWidget {
   const Deneme({super.key});
 
+  @override
+  State<Deneme> createState() => _DenemeState();
+}
+
+class _DenemeState extends State<Deneme> {
+  int activeIndex = 0;
   @override
   Widget build(BuildContext context) {
     List<MainScreenClothesModel> clothes = [
@@ -42,67 +50,90 @@ class Deneme extends StatelessWidget {
     ];
     DeviceSize size = DeviceSize(context);
     return Scaffold(
-      body: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          Center(
-            child: Padding(
-              padding: EdgeInsets.only(
-                top: sizeCalculator(size.height, 1.63),
-                bottom: sizeCalculator(size.height, 1.48),
-                left: sizeCalculator(size.width, 2.0),
-                right: sizeCalculator(size.width, 2.0),
-              ),
-              child: SizedBox(
-                height: sizeCalculator(size.height, 51.44),
-                width: size.width,
-                child: GridView.builder(
-                  itemCount: clothes.length >= 4 ? 4 : clothes.length,
-                  gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                    crossAxisCount: 2,
-                    mainAxisSpacing: sizeCalculator(size.height, 1.5),
-                    crossAxisSpacing: sizeCalculator(size.width, 3.19),
-                    childAspectRatio: (size.width / 2) / sizeCalculator(size.height, 25.09),
-                  ),
-                  itemBuilder: (context, index) {
-                    return SizedBox(
-                      height: sizeCalculator(DeviceSize(context).height, 25.09),
-                      width: sizeCalculator(DeviceSize(context).width, 43.99),
-                      child: Column(
-                        children: [
-                          SizedBox(
-                            height: sizeCalculator(DeviceSize(context).height, 17.54),
-                            width: sizeCalculator(DeviceSize(context).width, 43.99),
-                            child: Image.asset(
-                              clothes[index].imageUrl,
-                              fit: BoxFit.contain,
-                            ),
-                          ),
-                          SizedBox(
-                            height: sizeCalculator(DeviceSize(context).height, 4.01),
-                            width: sizeCalculator(DeviceSize(context).width, 40.29),
-                            child: FittedBox(
-                              fit: BoxFit.fitWidth,
-                              child: Text(
-                                clothes[index].name,
-                                style: Theme.of(context).textTheme.bodySmall,
+      backgroundColor: Colors.black,
+      body: Center(
+        child: Container(
+          height: sizeCalculator(size.height, 57.46),
+          width: size.width,
+          color: Colors.red,
+          child: Column(
+            children: [
+              Padding(
+                padding: EdgeInsets.only(top: sizeCalculator(size.height, 2.89)),
+                child: SizedBox(
+                  height: sizeCalculator(size.height, 48.93),
+                  child: ListView.builder(
+                    scrollDirection: Axis.horizontal,
+                    itemCount: 3,
+                    padding: EdgeInsets.only(left: sizeCalculator(size.width, 4.23)),
+                    itemBuilder: (context, index) {
+                      return GestureDetector(
+                        onTapUp: (_) {
+                          setState(() {
+                            activeIndex = index;
+                          });
+                        },
+                        child: Container(
+                          margin: EdgeInsets.only(right: sizeCalculator(size.width, 2.53)),
+                          height: sizeCalculator(size.height, 48.93),
+                          width: sizeCalculator(size.width, 67.97),
+                          color: AppColors().appBarColor,
+                          child: Column(
+                            children: [
+                              SizedBox(
+                                height: sizeCalculator(size.height, 39.13),
+                                child: Image.asset(
+                                  clothes[index].imageUrl,
+                                  fit: BoxFit.cover,
+                                ),
                               ),
-                            ),
+                              Padding(
+                                padding: EdgeInsets.only(
+                                  top: sizeCalculator(size.height, 0.5),
+                                ),
+                                child: SizedBox(
+                                  height: sizeCalculator(size.height, 6.02),
+                                  width: sizeCalculator(size.width, 61.94),
+                                  child: FittedBox(fit: BoxFit.fitWidth, child: Text(clothes[index].name)),
+                                ),
+                              ),
+                              Padding(
+                                padding: EdgeInsets.only(
+                                  bottom: sizeCalculator(size.height, 0.26),
+                                ),
+                                child: SizedBox(
+                                  height: sizeCalculator(size.height, 3.01),
+                                  width: sizeCalculator(size.width, 9.06),
+                                  child: FittedBox(fit: BoxFit.fitWidth, child: Text(clothes[index].price)),
+                                ),
+                              ),
+                            ],
                           ),
-                          SizedBox(
-                            height: sizeCalculator(DeviceSize(context).width, 3.01),
-                            width: sizeCalculator(DeviceSize(context).width, 8.53),
-                            child: FittedBox(fit: BoxFit.fitWidth, child: Text(clothes[index].price)),
-                          )
-                        ],
-                      ),
-                    );
-                  },
+                        ),
+                      );
+                    },
+                  ),
                 ),
               ),
-            ),
+              Padding(
+                padding: EdgeInsets.only(top: sizeCalculator(size.height, 2.20)),
+                child: SizedBox(
+                  height: sizeCalculator(size.height, 1),
+                  width: sizeCalculator(size.width, 9.11),
+                  child: AnimatedSmoothIndicator(
+                    activeIndex: activeIndex,
+                    count: 3,
+                    effect: SlideEffect(
+                      dotHeight: sizeCalculator(size.height, 1.0),
+                      dotWidth: sizeCalculator(size.width, 2.13),
+                      activeDotColor: AppColors().offWhite,
+                    ),
+                  ),
+                ),
+              ),
+            ],
           ),
-        ],
+        ),
       ),
     );
   }
