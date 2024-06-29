@@ -132,36 +132,233 @@ class MainScreenView extends StatelessWidget {
               child: const FittedBox(fit: BoxFit.fitWidth, child: Text("JUST FOR YOU")),
             ),
             AppHeaderLine(size: size, colors: colors),
-            /*SizedBox(
-              height: sizeCalculator(size.height, 47.75),
+            SizedBox(
+              height: sizeCalculator(size.height, 57.46),
               width: size.width,
               child: Column(
                 children: [
-                  CarouselSlider.builder(
-              itemCount: 3,
-              itemBuilder: (context, index, realIndex) {
-                return Container(
-                  height: sizeCalculator(widget.size.height, 75.28),
-                  width: widget.size.width,
-                  color: widget.colors.appBarColor,
-                  child: CachedNetworkImage(
-                    imageUrl: imageList[index],
-                    fit: BoxFit.cover,
+                  Padding(
+                    padding: EdgeInsets.only(top: sizeCalculator(size.height, 2.89)),
+                    child: SizedBox(
+                      height: sizeCalculator(size.height, 48.93),
+                      child: ListView.builder(
+                        scrollDirection: Axis.horizontal,
+                        itemCount: 3,
+                        padding: EdgeInsets.only(left: sizeCalculator(size.width, 4.23)),
+                        itemBuilder: (context, index) {
+                          return Container(
+                            margin: EdgeInsets.only(right: sizeCalculator(size.width, 2.53)),
+                            height: sizeCalculator(size.height, 48.93),
+                            width: sizeCalculator(size.width, 67.97),
+                            color: AppColors().appBarColor,
+                            child: Column(
+                              children: [
+                                SizedBox(
+                                  height: sizeCalculator(size.height, 39.13),
+                                  child: Image.asset(
+                                    clothes[index].imageUrl,
+                                    fit: BoxFit.cover,
+                                  ),
+                                ),
+                                Padding(
+                                  padding: EdgeInsets.only(
+                                    top: sizeCalculator(size.height, 0.5),
+                                  ),
+                                  child: SizedBox(
+                                    height: sizeCalculator(size.height, 6.02),
+                                    width: sizeCalculator(size.width, 61.94),
+                                    child: FittedBox(fit: BoxFit.fitWidth, child: Text(clothes[index].name)),
+                                  ),
+                                ),
+                                Padding(
+                                  padding: EdgeInsets.only(
+                                    bottom: sizeCalculator(size.height, 0.26),
+                                  ),
+                                  child: SizedBox(
+                                    height: sizeCalculator(size.height, 3.01),
+                                    width: sizeCalculator(size.width, 9.06),
+                                    child: FittedBox(fit: BoxFit.fitWidth, child: Text(clothes[index].price)),
+                                  ),
+                                ),
+                              ],
+                            ),
+                          );
+                        },
+                      ),
+                    ),
                   ),
-                );
-              },
-              options: CarouselOptions(
-                  height: sizeCalculator(widget.size.height, 75.28),
-                  //If I make photos full cover
-                  //viewportFraction: 1,
-                  onPageChanged: (index, reason) => setState(() {
-                        activeIndex = index;
-                      }),
-                  autoPlay: true,
-                  autoPlayInterval: const Duration(seconds: 5)))
+                  Padding(
+                    padding: EdgeInsets.only(top: sizeCalculator(size.height, 2.20)),
+                    child: SizedBox(
+                      height: sizeCalculator(size.height, 1),
+                      width: sizeCalculator(size.width, 9.11),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Transform.rotate(
+                            angle: 0.785398,
+                            child: Container(
+                              width: sizeCalculator(size.height, 1),
+                              height: sizeCalculator(size.width, 2.13),
+                              decoration: BoxDecoration(
+                                color: AppColors().secondary,
+                              ),
+                            ),
+                          ),
+                          Transform.rotate(
+                            angle: 0.785398,
+                            child: Container(
+                              width: sizeCalculator(size.height, 1),
+                              height: sizeCalculator(size.width, 2.13),
+                              decoration: BoxDecoration(
+                                color: AppColors().secondary,
+                              ),
+                            ),
+                          ),
+                          Transform.rotate(
+                            angle: 0.785398,
+                            child: Container(
+                              width: sizeCalculator(size.height, 1),
+                              height: sizeCalculator(size.width, 2.13),
+                              decoration: BoxDecoration(
+                                color: AppColors().secondary,
+                              ),
+                            ),
+                          )
+                        ],
+                      ),
+                    ),
+                  ),
                 ],
               ),
-            ),*/
+            ),
+            SizedBox(
+              height: sizeCalculator(size.height, 17.56),
+              width: size.width,
+              child: Column(
+                children: [
+                  Padding(
+                    padding: EdgeInsets.only(
+                      top: sizeCalculator(size.height, 0.75),
+                      bottom: sizeCalculator(size.height, 1),
+                    ),
+                    child: SizedBox(
+                      height: sizeCalculator(size.height, 5.01),
+                      width: sizeCalculator(size.width, 40.79),
+                      child: const FittedBox(fit: BoxFit.fitWidth, child: Text("@TRENDING")),
+                    ),
+                  ),
+                  Padding(
+                    padding: EdgeInsets.only(bottom: sizeCalculator(size.height, 1)),
+                    child: SizedBox(
+                      height: sizeCalculator(size.height, 4.01),
+                      width: size.width,
+                      child: Row(
+                        children: [
+                          Container(
+                            width: sizeCalculator(size.width, 16.26),
+                            margin: EdgeInsets.only(
+                                left: sizeCalculator(size.width, 4.26), right: sizeCalculator(size.width, 1.33)),
+                            decoration:
+                                BoxDecoration(color: colors.inputBackground, borderRadius: BorderRadius.circular(10)),
+                            child: Padding(
+                              padding: EdgeInsets.symmetric(
+                                  horizontal: sizeCalculator(size.width, 2.66),
+                                  vertical: sizeCalculator(size.height, 1)),
+                              child: const FittedBox(fit: BoxFit.fitWidth, child: Text("#2021")),
+                            ),
+                          ),
+                          Container(
+                            width: sizeCalculator(size.width, 19.99),
+                            margin: EdgeInsets.only(right: sizeCalculator(size.width, 1.33)),
+                            decoration:
+                                BoxDecoration(color: colors.inputBackground, borderRadius: BorderRadius.circular(10)),
+                            child: Padding(
+                              padding: EdgeInsets.symmetric(
+                                  horizontal: sizeCalculator(size.width, 2.66),
+                                  vertical: sizeCalculator(size.height, 1)),
+                              child: const FittedBox(fit: BoxFit.fitWidth, child: Text("#spring")),
+                            ),
+                          ),
+                          Container(
+                            width: sizeCalculator(size.width, 26.66),
+                            margin: EdgeInsets.only(right: sizeCalculator(size.width, 1.33)),
+                            decoration:
+                                BoxDecoration(color: colors.inputBackground, borderRadius: BorderRadius.circular(10)),
+                            child: Padding(
+                              padding: EdgeInsets.symmetric(
+                                  horizontal: sizeCalculator(size.width, 2.66),
+                                  vertical: sizeCalculator(size.height, 1)),
+                              child: const FittedBox(fit: BoxFit.fitWidth, child: Text("#collection")),
+                            ),
+                          ),
+                          Container(
+                            width: sizeCalculator(size.width, 14.39),
+                            margin: EdgeInsets.only(right: sizeCalculator(size.width, 11.99)),
+                            decoration:
+                                BoxDecoration(color: colors.inputBackground, borderRadius: BorderRadius.circular(10)),
+                            child: Padding(
+                              padding: EdgeInsets.symmetric(
+                                  horizontal: sizeCalculator(size.width, 2.66),
+                                  vertical: sizeCalculator(size.height, 1)),
+                              child: const FittedBox(fit: BoxFit.fitWidth, child: Text("#fall")),
+                            ),
+                          )
+                        ],
+                      ),
+                    ),
+                  ),
+                  Padding(
+                    padding: EdgeInsets.only(bottom: sizeCalculator(size.height, 1.75)),
+                    child: SizedBox(
+                      height: sizeCalculator(size.height, 4.01),
+                      width: size.width,
+                      child: Row(
+                        children: [
+                          Container(
+                            width: sizeCalculator(size.width, 18.39),
+                            margin: EdgeInsets.only(
+                                left: sizeCalculator(size.width, 4.26), right: sizeCalculator(size.width, 1.33)),
+                            decoration:
+                                BoxDecoration(color: colors.inputBackground, borderRadius: BorderRadius.circular(10)),
+                            child: Padding(
+                              padding: EdgeInsets.symmetric(
+                                  horizontal: sizeCalculator(size.width, 2.66),
+                                  vertical: sizeCalculator(size.height, 1)),
+                              child: const FittedBox(fit: BoxFit.fitWidth, child: Text("#dress")),
+                            ),
+                          ),
+                          Container(
+                            width: sizeCalculator(size.width, 39.99),
+                            margin: EdgeInsets.only(right: sizeCalculator(size.width, 1.33)),
+                            decoration:
+                                BoxDecoration(color: colors.inputBackground, borderRadius: BorderRadius.circular(10)),
+                            child: Padding(
+                              padding: EdgeInsets.symmetric(
+                                  horizontal: sizeCalculator(size.width, 2.66),
+                                  vertical: sizeCalculator(size.height, 1)),
+                              child: const FittedBox(fit: BoxFit.fitWidth, child: Text("#autumncollection")),
+                            ),
+                          ),
+                          Container(
+                            width: sizeCalculator(size.width, 30.93),
+                            margin: EdgeInsets.only(right: sizeCalculator(size.width, 1)),
+                            decoration:
+                                BoxDecoration(color: colors.inputBackground, borderRadius: BorderRadius.circular(10)),
+                            child: Padding(
+                              padding: EdgeInsets.symmetric(
+                                  horizontal: sizeCalculator(size.width, 2.66),
+                                  vertical: sizeCalculator(size.height, 1)),
+                              child: const FittedBox(fit: BoxFit.fitWidth, child: Text("#openfashion")),
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                  )
+                ],
+              ),
+            ),
             Container(
               height: 100,
               width: 100,
