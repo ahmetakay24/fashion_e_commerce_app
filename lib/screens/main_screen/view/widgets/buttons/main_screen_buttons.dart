@@ -14,19 +14,23 @@ class MainScreenExploreMoreButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return InkWell(
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-        children: [
-          SizedBox(
-              height: sizeCalculator(size.height, 3.01),
-              width: sizeCalculator(size.width, 27.99),
-              child: const FittedBox(fit: BoxFit.fitWidth, child: Text("Explore More"))),
-          SizedBox(
-              height: sizeCalculator(size.height, 2.25),
-              width: sizeCalculator(size.width, 4.79),
-              child: const FittedBox(fit: BoxFit.cover, child: AppIcons(icon: "forward_arrow")))
-        ],
+    return SizedBox(
+      height: sizeCalculator(size.height, 6.02),
+      width: sizeCalculator(size.width, 41.33),
+      child: InkWell(
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          children: [
+            SizedBox(
+                height: sizeCalculator(size.height, 3.01),
+                width: sizeCalculator(size.width, 27.99),
+                child: const FittedBox(fit: BoxFit.fitWidth, child: Text("Explore More"))),
+            SizedBox(
+                height: sizeCalculator(size.height, 2.25),
+                width: sizeCalculator(size.width, 4.79),
+                child: const FittedBox(fit: BoxFit.cover, child: AppIcons(icon: "forward_arrow")))
+          ],
+        ),
       ),
     );
   }
