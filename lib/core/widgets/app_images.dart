@@ -19,3 +19,13 @@ class AppLogos extends StatelessWidget {
     return Image.asset("assets/logos/$logo.png");
   }
 }
+
+class AppStickers extends StatelessWidget {
+  const AppStickers({super.key, required this.stickers});
+  final String stickers;
+
+  @override
+  Widget build(BuildContext context) {
+    return Image.asset("assets/stickers/$stickers.png");
+  }
+}

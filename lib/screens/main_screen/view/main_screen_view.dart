@@ -139,7 +139,7 @@ class MainScreenView extends StatelessWidget {
                       width: sizeCalculator(size.width, 75.99),
                       child: const AutoSizeText(
                           maxLines: 3,
-                          presetFontSizes: [17, 16, 15, 14, 13],
+                          presetFontSizes: [18, 17, 16, 15, 14, 13],
                           "Making a luxurious lifestyle accessible for a generous group of women is our daily drive."),
                     ),
                   ),
@@ -147,6 +147,64 @@ class MainScreenView extends StatelessWidget {
                     padding: EdgeInsets.only(bottom: sizeCalculator(size.height, 1.70)),
                     child: AppHeaderLine(size: size, colors: colors),
                   ),
+                  SizedBox(
+                    height: sizeCalculator(size.height, 23.42),
+                    width: size.width,
+                    child: Row(
+                      children: [
+                        Expanded(
+                          child: Column(
+                            children: [
+                              Padding(
+                                padding: EdgeInsets.only(bottom: sizeCalculator(size.height, 1.50)),
+                                child: SizedBox(
+                                  height: sizeCalculator(size.height, 4.37),
+                                  width: sizeCalculator(size.width, 13.27),
+                                  child: const AppStickers(stickers: "miroodles"),
+                                ),
+                              ),
+                              Padding(
+                                padding: EdgeInsets.only(
+                                    bottom: sizeCalculator(size.height, 2.25), left: sizeCalculator(size.width, 4.26)),
+                                child: SizedBox(
+                                  height: sizeCalculator(size.height, 5.01),
+                                  width: sizeCalculator(size.width, 43.99),
+                                  child: const AutoSizeText(
+                                      maxLines: 2,
+                                      presetFontSizes: [18, 17, 16, 15, 14, 13],
+                                      "Fast shipping. Free on orders over \$25."),
+                                ),
+                              ),
+                              Padding(
+                                padding: EdgeInsets.only(bottom: sizeCalculator(size.height, 0.46)),
+                                child: SizedBox(
+                                  height: sizeCalculator(size.height, 4.78),
+                                  width: sizeCalculator(size.width, 14.50),
+                                  child: const AppStickers(stickers: "cylinder"),
+                                ),
+                              ),
+                              Padding(
+                                padding: EdgeInsets.only(left: sizeCalculator(size.width, 4.26)),
+                                child: SizedBox(
+                                  height: sizeCalculator(size.height, 5.01),
+                                  width: sizeCalculator(size.width, 43.99),
+                                  child: const AutoSizeText(
+                                      maxLines: 2,
+                                      presetFontSizes: [18, 17, 16, 15, 14, 13],
+                                      "Unique designs and high-quality materials."),
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                        const Expanded(
+                          child: Column(
+                            children: [],
+                          ),
+                        )
+                      ],
+                    ),
+                  )
                 ],
               ),
             ),
