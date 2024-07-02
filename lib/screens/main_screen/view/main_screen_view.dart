@@ -1,8 +1,6 @@
-import 'package:auto_size_text/auto_size_text.dart';
 import 'package:fashion_e_commerce_app/core/colors/core_app_colors.dart';
 import 'package:fashion_e_commerce_app/core/size/device_size.dart';
 import 'package:fashion_e_commerce_app/core/widgets/app_custom_widgets.dart';
-import 'package:fashion_e_commerce_app/core/widgets/app_images.dart';
 import 'package:fashion_e_commerce_app/resources/texts/main_screen/main_screen_texts_english.dart';
 import 'package:fashion_e_commerce_app/screens/main_screen/model/main_screen_models.dart';
 import 'package:fashion_e_commerce_app/screens/main_screen/view/widgets/app_bar_and_sections/main_screen_app_bar_and_sections.dart';
@@ -115,99 +113,7 @@ class MainScreenView extends StatelessWidget {
                   EdgeInsets.only(top: sizeCalculator(size.height, 4.76), bottom: sizeCalculator(size.height, 2.81)),
               child: MainScreenTagsSection(size: size, colors: colors),
             ),
-            SizedBox(
-              height: sizeCalculator(size.height, 58.34),
-              width: size.width,
-              child: Column(
-                children: [
-                  Padding(
-                    padding: EdgeInsets.only(
-                        top: sizeCalculator(size.height, 3.46), bottom: sizeCalculator(size.height, 2.08)),
-                    child: SizedBox(
-                      height: sizeCalculator(size.height, 5.01),
-                      width: sizeCalculator(size.width, 26.02),
-                      child: const FittedBox(fit: BoxFit.cover, child: AppLogos(logo: "Logo")),
-                    ),
-                  ),
-                  Padding(
-                    padding: EdgeInsets.only(
-                        left: sizeCalculator(size.width, 11.99),
-                        right: sizeCalculator(size.width, 11.99),
-                        bottom: sizeCalculator(size.height, 0.61)),
-                    child: SizedBox(
-                      height: sizeCalculator(size.height, 8.23),
-                      width: sizeCalculator(size.width, 75.99),
-                      child: const AutoSizeText(
-                          maxLines: 3,
-                          presetFontSizes: [18, 17, 16, 15, 14, 13],
-                          "Making a luxurious lifestyle accessible for a generous group of women is our daily drive."),
-                    ),
-                  ),
-                  Padding(
-                    padding: EdgeInsets.only(bottom: sizeCalculator(size.height, 1.70)),
-                    child: AppHeaderLine(size: size, colors: colors),
-                  ),
-                  SizedBox(
-                    height: sizeCalculator(size.height, 23.42),
-                    width: size.width,
-                    child: Row(
-                      children: [
-                        Expanded(
-                          child: Column(
-                            children: [
-                              Padding(
-                                padding: EdgeInsets.only(bottom: sizeCalculator(size.height, 1.50)),
-                                child: SizedBox(
-                                  height: sizeCalculator(size.height, 4.37),
-                                  width: sizeCalculator(size.width, 13.27),
-                                  child: const AppStickers(stickers: "miroodles"),
-                                ),
-                              ),
-                              Padding(
-                                padding: EdgeInsets.only(
-                                    bottom: sizeCalculator(size.height, 2.25), left: sizeCalculator(size.width, 4.26)),
-                                child: SizedBox(
-                                  height: sizeCalculator(size.height, 5.01),
-                                  width: sizeCalculator(size.width, 43.99),
-                                  child: const AutoSizeText(
-                                      maxLines: 2,
-                                      presetFontSizes: [18, 17, 16, 15, 14, 13],
-                                      "Fast shipping. Free on orders over \$25."),
-                                ),
-                              ),
-                              Padding(
-                                padding: EdgeInsets.only(bottom: sizeCalculator(size.height, 0.46)),
-                                child: SizedBox(
-                                  height: sizeCalculator(size.height, 4.78),
-                                  width: sizeCalculator(size.width, 14.50),
-                                  child: const AppStickers(stickers: "cylinder"),
-                                ),
-                              ),
-                              Padding(
-                                padding: EdgeInsets.only(left: sizeCalculator(size.width, 4.26)),
-                                child: SizedBox(
-                                  height: sizeCalculator(size.height, 5.01),
-                                  width: sizeCalculator(size.width, 43.99),
-                                  child: const AutoSizeText(
-                                      maxLines: 2,
-                                      presetFontSizes: [18, 17, 16, 15, 14, 13],
-                                      "Unique designs and high-quality materials."),
-                                ),
-                              ),
-                            ],
-                          ),
-                        ),
-                        const Expanded(
-                          child: Column(
-                            children: [],
-                          ),
-                        )
-                      ],
-                    ),
-                  )
-                ],
-              ),
-            ),
+            MainScreenOpenFashionSection(size: size, colors: colors),
             Container(
               height: 100,
               width: 100,
@@ -219,3 +125,4 @@ class MainScreenView extends StatelessWidget {
     );
   }
 }
+
