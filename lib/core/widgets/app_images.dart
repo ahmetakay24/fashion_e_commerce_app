@@ -29,3 +29,13 @@ class AppStickers extends StatelessWidget {
     return Image.asset("assets/stickers/$stickers.png");
   }
 }
+
+class AppBanner extends StatelessWidget {
+  const AppBanner({super.key, required this.banner});
+  final String banner;
+
+  @override
+  Widget build(BuildContext context) {
+    return Image.asset("assets/banners/$banner.png");
+  }
+}

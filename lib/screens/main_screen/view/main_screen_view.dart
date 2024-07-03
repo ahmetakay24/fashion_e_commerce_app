@@ -1,6 +1,7 @@
 import 'package:fashion_e_commerce_app/core/colors/core_app_colors.dart';
 import 'package:fashion_e_commerce_app/core/size/device_size.dart';
 import 'package:fashion_e_commerce_app/core/widgets/app_custom_widgets.dart';
+import 'package:fashion_e_commerce_app/core/widgets/app_images.dart';
 import 'package:fashion_e_commerce_app/resources/texts/main_screen/main_screen_texts_english.dart';
 import 'package:fashion_e_commerce_app/screens/main_screen/model/main_screen_models.dart';
 import 'package:fashion_e_commerce_app/screens/main_screen/view/widgets/app_bar_and_sections/main_screen_app_bar_and_sections.dart';
@@ -113,7 +114,50 @@ class MainScreenView extends StatelessWidget {
                   EdgeInsets.only(top: sizeCalculator(size.height, 4.76), bottom: sizeCalculator(size.height, 2.81)),
               child: MainScreenTagsSection(size: size, colors: colors),
             ),
-            MainScreenOpenFashionSection(size: size, colors: colors),
+            Padding(
+              padding: EdgeInsets.only(bottom: sizeCalculator(size.height, 2.08)),
+              child: MainScreenOpenFashionSection(size: size, colors: colors),
+            ),
+            SizedBox(
+              height: sizeCalculator(size.height, 59.97),
+              width: size.width,
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  Padding(
+                    padding: EdgeInsets.only(
+                        top: sizeCalculator(size.height, 2.00), bottom: sizeCalculator(size.height, 0.43)),
+                    child: SizedBox(
+                      height: sizeCalculator(size.height, 5.01),
+                      width: sizeCalculator(size.width, 38.93),
+                      child: const FittedBox(fit: BoxFit.fitWidth, child: Text("FOLLOW US")),
+                    ),
+                  ),
+                  Padding(
+                    padding: EdgeInsets.only(bottom: sizeCalculator(size.height, 0.30)),
+                    child: SizedBox(
+                      height: sizeCalculator(size.height, 2.64),
+                      width: sizeCalculator(size.height, 5.62),
+                      child: const AppLogos(
+                        logo: "instagram",
+                      ),
+                    ),
+                  ),
+                  //Resim stack alanını kaplamıyor
+                  SizedBox(
+                      height: sizeCalculator(size.height, 47.30),
+                      width: sizeCalculator(size.width, 100),
+                      child: GridView.count(
+                        crossAxisCount: 2,
+                        children: const [
+                          Stack(
+                            children: [AppBanner(banner: "mia")],
+                          )
+                        ],
+                      ))
+                ],
+              ),
+            ),
             Container(
               height: 100,
               width: 100,
@@ -125,4 +169,3 @@ class MainScreenView extends StatelessWidget {
     );
   }
 }
-

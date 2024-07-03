@@ -386,14 +386,14 @@ class MainScreenOpenFashionSection extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SizedBox(
+    return Container(
+      color: const Color.fromRGBO(242, 242, 242, 1),
       height: sizeCalculator(size.height, 58.34),
       width: size.width,
       child: Column(
         children: [
           Padding(
-            padding: EdgeInsets.only(
-                top: sizeCalculator(size.height, 3.46), bottom: sizeCalculator(size.height, 2.08)),
+            padding: EdgeInsets.only(top: sizeCalculator(size.height, 3.46), bottom: sizeCalculator(size.height, 2.08)),
             child: SizedBox(
               height: sizeCalculator(size.height, 5.01),
               width: sizeCalculator(size.width, 26.02),
