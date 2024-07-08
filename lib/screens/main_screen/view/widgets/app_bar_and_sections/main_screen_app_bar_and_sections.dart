@@ -529,3 +529,91 @@ class MainScreenOpenFashionSection extends StatelessWidget {
     );
   }
 }
+
+class MainScreenFollowUsSection extends StatelessWidget {
+  const MainScreenFollowUsSection({
+    super.key,
+    required this.size,
+  });
+
+  final DeviceSize size;
+
+  @override
+  Widget build(BuildContext context) {
+    return SizedBox(
+      height: sizeCalculator(size.height, 59.97),
+      width: size.width,
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: [
+          Padding(
+            padding: EdgeInsets.only(top: sizeCalculator(size.height, 2.00), bottom: sizeCalculator(size.height, 0.43)),
+            child: SizedBox(
+              height: sizeCalculator(size.height, 5.01),
+              width: sizeCalculator(size.width, 38.93),
+              child: const FittedBox(fit: BoxFit.fitWidth, child: Text("FOLLOW US")),
+            ),
+          ),
+          Padding(
+            padding: EdgeInsets.only(bottom: sizeCalculator(size.height, 0.30)),
+            child: SizedBox(
+              height: sizeCalculator(size.height, 2.64),
+              width: sizeCalculator(size.height, 5.62),
+              child: const AppLogos(
+                logo: "instagram",
+              ),
+            ),
+          ),
+          Padding(
+            padding: EdgeInsets.symmetric(horizontal: sizeCalculator(size.width, 4.26)),
+            child: SizedBox(
+                height: sizeCalculator(size.height, 47.30),
+                width: sizeCalculator(size.width, 100),
+                child: Column(
+                  children: [
+                    Expanded(
+                      child: Row(
+                        children: [
+                          buildBanner("mia"),
+                          Padding(
+                            padding: EdgeInsets.only(left: sizeCalculator(size.width, 3.73)),
+                            child: buildBanner("jihyn"),
+                          ),
+                        ],
+                      ),
+                    ),
+                    Expanded(
+                      child: Row(
+                        children: [
+                          buildBanner("mia2"),
+                          Padding(
+                            padding: EdgeInsets.only(left: sizeCalculator(size.width, 3.73)),
+                            child: buildBanner("jihyn2"),
+                          ),
+                        ],
+                      ),
+                    )
+                  ],
+                )),
+          )
+        ],
+      ),
+    );
+  }
+
+  Widget buildBanner(String photo) {
+    return SizedBox(
+      height: sizeCalculator(size.height, 20.57),
+      width: sizeCalculator(size.width, 43.73),
+      child: Stack(
+        children: [
+          SizedBox(
+            height: sizeCalculator(size.height, 20.57),
+            width: sizeCalculator(size.width, 43.73),
+            child: FittedBox(fit: BoxFit.cover, child: AppBanner(banner: photo)),
+          ),
+        ],
+      ),
+    );
+  }
+}
