@@ -7,41 +7,6 @@ import 'package:flutter/material.dart';
 
 //AppBar
 
-class MainScreenAppBar extends StatelessWidget implements PreferredSizeWidget {
-  const MainScreenAppBar({
-    super.key,
-    required this.context,
-    required this.colors,
-    required this.size,
-  });
-  final BuildContext context;
-  final AppColors colors;
-  final DeviceSize size;
-
-  @override
-  Widget build(BuildContext context) {
-    return AppBar(
-      backgroundColor: colors.appBarColor,
-      centerTitle: true,
-      title: const AppLogos(logo: "Logo"),
-      leading: Padding(
-        padding: EdgeInsets.only(left: sizeCalculator(size.width, 0.18)),
-        child: const IconButton(onPressed: null, icon: AppIcons(icon: "Menu")),
-      ),
-      actions: [
-        const IconButton(onPressed: null, icon: AppIcons(icon: "Search")),
-        Padding(
-          padding: EdgeInsets.only(right: sizeCalculator(size.width, 1.20)),
-          child: const IconButton(onPressed: null, icon: AppIcons(icon: "shopping_bag")),
-        )
-      ],
-    );
-  }
-
-  @override
-  Size get preferredSize => Size.fromHeight(AppBarTheme.of(context).toolbarHeight!);
-}
-
 //New Arrival Section
 
 class MainScreenNewArrivalTitle extends StatelessWidget {
