@@ -1,4 +1,5 @@
-import 'package:fashion_e_commerce_app/screens/search/view/search_view.dart';
+import 'package:fashion_e_commerce_app/screens/cart/view/cart_view.dart';
+import 'package:fashion_e_commerce_app/screens/main_screen/view/main_screen_view.dart';
 import 'package:fashion_e_commerce_app/theme/app_theme.dart';
 import 'package:flutter/material.dart';
 
@@ -17,7 +18,7 @@ class App extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       theme: theme.themeData,
-      home: const SearchView(),
+      home: const CartView(),
     );
   }
 }
