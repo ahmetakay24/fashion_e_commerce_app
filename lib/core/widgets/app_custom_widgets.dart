@@ -1,6 +1,7 @@
 import 'package:fashion_e_commerce_app/core/colors/core_app_colors.dart';
 import 'package:fashion_e_commerce_app/core/size/device_size.dart';
 import 'package:fashion_e_commerce_app/core/widgets/app_images.dart';
+import 'package:fashion_e_commerce_app/screens/cart/view/cart_view.dart';
 import 'package:fashion_e_commerce_app/screens/search/view/search_view.dart';
 import 'package:flutter/material.dart';
 
@@ -73,7 +74,11 @@ class MainScreenAppBar extends StatelessWidget implements PreferredSizeWidget {
             icon: const AppIcons(icon: "Search")),
         Padding(
           padding: EdgeInsets.only(right: sizeCalculator(size.width, 1.20)),
-          child: const IconButton(onPressed: null, icon: AppIcons(icon: "shopping_bag")),
+          child: IconButton(
+              onPressed: () => Navigator.of(context).push(MaterialPageRoute(
+                    builder: (context) => const CartView(),
+                  )),
+              icon: const AppIcons(icon: "shopping_bag")),
         )
       ],
     );
