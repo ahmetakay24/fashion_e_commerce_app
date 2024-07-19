@@ -7,6 +7,7 @@ import 'package:fashion_e_commerce_app/screens/main_screen/model/main_screen_mod
 import 'package:fashion_e_commerce_app/screens/main_screen/view/widgets/app_bar_and_sections/main_screen_app_bar_and_sections.dart';
 import 'package:fashion_e_commerce_app/screens/main_screen/view/widgets/builders/main_screen_builders.dart';
 import 'package:fashion_e_commerce_app/screens/main_screen/view/widgets/buttons/main_screen_buttons.dart';
+import 'package:fashion_e_commerce_app/screens/october_collection/view/october_collection_view.dart';
 import 'package:flutter/material.dart';
 
 class MainScreenView extends StatelessWidget {
@@ -41,7 +42,9 @@ class MainScreenView extends StatelessWidget {
     ];
 
     return Scaffold(
-      appBar: MainScreenAppBar(
+      appBar: OpenFashionAppBar(
+        iconBlackOrWhite: Colors.black,
+        appBarColors: colors.appBarColor,
         context: context,
         colors: colors,
         size: size,
@@ -96,7 +99,14 @@ class MainScreenView extends StatelessWidget {
               padding: EdgeInsets.only(top: sizeCalculator(size.height, 7.42), bottom: sizeCalculator(size.height, 2)),
               child: MainScreenCollectionsTitle(size: size),
             ),
-            MainScreenOctoberCollectionBanner(size: size),
+            InkWell(
+                onTap: () => Navigator.of(context).push(MaterialPageRoute(
+                      builder: (context) => OctoberCollectionView(
+                        colors: colors,
+                        size: size,
+                      ),
+                    )),
+                child: MainScreenOctoberCollectionBanner(size: size)),
             Padding(
               padding:
                   EdgeInsets.only(top: sizeCalculator(size.height, 5.01), bottom: sizeCalculator(size.height, 5.01)),
@@ -119,111 +129,126 @@ class MainScreenView extends StatelessWidget {
               child: MainScreenOpenFashionSection(size: size, colors: colors),
             ),
             MainScreenFollowUsSection(size: size),
-            SizedBox(
-              height: sizeCalculator(size.height, 45),
-              width: size.width,
-              child: Column(
-                children: [
-                  Padding(
-                    padding: EdgeInsets.symmetric(vertical: sizeCalculator(size.height, 3.01)),
-                    child: SizedBox(
+            AppFooter(size: size, colors: colors),
+          ],
+        ),
+      ),
+    );
+  }
+}
+
+class AppFooter extends StatelessWidget {
+  const AppFooter({
+    super.key,
+    required this.size,
+    required this.colors,
+  });
+
+  final DeviceSize size;
+  final AppColors colors;
+
+  @override
+  Widget build(BuildContext context) {
+    return SizedBox(
+      height: sizeCalculator(size.height, 45),
+      width: size.width,
+      child: Column(
+        children: [
+          Padding(
+            padding: EdgeInsets.symmetric(vertical: sizeCalculator(size.height, 3.01)),
+            child: SizedBox(
+                height: sizeCalculator(size.height, 3.01),
+                width: sizeCalculator(size.width, 43.19),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    SizedBox(
                         height: sizeCalculator(size.height, 3.01),
-                        width: sizeCalculator(size.width, 43.19),
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            SizedBox(
-                                height: sizeCalculator(size.height, 3.01),
-                                width: sizeCalculator(size.width, 6.39),
-                                child: const AppIcons(icon: "x")),
-                            SizedBox(
-                                height: sizeCalculator(size.height, 3.01),
-                                width: sizeCalculator(size.width, 6.39),
-                                child: const AppIcons(icon: "instagram_vector")),
-                            SizedBox(
-                                height: sizeCalculator(size.height, 3.01),
-                                width: sizeCalculator(size.width, 6.39),
-                                child: const AppIcons(icon: "youtube")),
-                          ],
-                        )),
-                  ),
-                  Padding(
-                      padding: EdgeInsets.only(bottom: sizeCalculator(size.height, 2.34)),
-                      child: AppHeaderLine(size: size, colors: colors)),
-                  SizedBox(
-                    height: sizeCalculator(size.height, 13.40),
-                    width: sizeCalculator(size.width, 49.06),
-                    child: const Column(
-                      children: [
-                        Expanded(child: FittedBox(fit: BoxFit.fitWidth, child: Text("support@openui.design"))),
-                        Expanded(
-                            child: Row(
-                          children: [
-                            Spacer(),
-                            Expanded(
-                              flex: 4,
-                              child: FittedBox(
-                                fit: BoxFit.fitWidth,
-                                child: Text("+60 825 876"),
-                              ),
-                            ),
-                            Spacer()
-                          ],
-                        )),
-                        Expanded(child: FittedBox(fit: BoxFit.fitWidth, child: Text("08:00 - 22:00 - Everyday")))
-                      ],
-                    ),
-                  ),
-                  Padding(
-                      padding: EdgeInsets.only(
-                          top: sizeCalculator(size.height, 2.34), bottom: sizeCalculator(size.height, 4.01)),
-                      child: AppHeaderLine(size: size, colors: colors)),
-                  Padding(
-                    padding: EdgeInsets.only(bottom: sizeCalculator(size.height, 2.88)),
-                    child: SizedBox(
-                      height: sizeCalculator(size.height, 3.01),
-                      width: sizeCalculator(size.width, 65.86),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          SizedBox(
-                            height: sizeCalculator(size.height, 3.01),
-                            width: sizeCalculator(size.width, 12.53),
-                            child: const FittedBox(fit: BoxFit.fitWidth, child: Text("About")),
-                          ),
-                          SizedBox(
-                            height: sizeCalculator(size.height, 3.01),
-                            width: sizeCalculator(size.width, 16.26),
-                            child: const FittedBox(fit: BoxFit.fitWidth, child: Text("Contact")),
-                          ),
-                          SizedBox(
-                            height: sizeCalculator(size.height, 3.01),
-                            width: sizeCalculator(size.width, 9.33),
-                            child: const FittedBox(fit: BoxFit.fitWidth, child: Text("Blog")),
-                          )
-                        ],
+                        width: sizeCalculator(size.width, 6.39),
+                        child: const AppIcons(icon: "x")),
+                    SizedBox(
+                        height: sizeCalculator(size.height, 3.01),
+                        width: sizeCalculator(size.width, 6.39),
+                        child: const AppIcons(icon: "instagram_vector")),
+                    SizedBox(
+                        height: sizeCalculator(size.height, 3.01),
+                        width: sizeCalculator(size.width, 6.39),
+                        child: const AppIcons(icon: "youtube")),
+                  ],
+                )),
+          ),
+          Padding(
+              padding: EdgeInsets.only(bottom: sizeCalculator(size.height, 2.34)),
+              child: AppHeaderLine(size: size, colors: colors)),
+          SizedBox(
+            height: sizeCalculator(size.height, 13.40),
+            width: sizeCalculator(size.width, 49.06),
+            child: const Column(
+              children: [
+                Expanded(child: FittedBox(fit: BoxFit.fitWidth, child: Text("support@openui.design"))),
+                Expanded(
+                    child: Row(
+                  children: [
+                    Spacer(),
+                    Expanded(
+                      flex: 4,
+                      child: FittedBox(
+                        fit: BoxFit.fitWidth,
+                        child: Text("+60 825 876"),
                       ),
                     ),
+                    Spacer()
+                  ],
+                )),
+                Expanded(child: FittedBox(fit: BoxFit.fitWidth, child: Text("08:00 - 22:00 - Everyday")))
+              ],
+            ),
+          ),
+          Padding(
+              padding:
+                  EdgeInsets.only(top: sizeCalculator(size.height, 2.34), bottom: sizeCalculator(size.height, 4.01)),
+              child: AppHeaderLine(size: size, colors: colors)),
+          Padding(
+            padding: EdgeInsets.only(bottom: sizeCalculator(size.height, 2.88)),
+            child: SizedBox(
+              height: sizeCalculator(size.height, 3.01),
+              width: sizeCalculator(size.width, 65.86),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  SizedBox(
+                    height: sizeCalculator(size.height, 3.01),
+                    width: sizeCalculator(size.width, 12.53),
+                    child: const FittedBox(fit: BoxFit.fitWidth, child: Text("About")),
                   ),
-                  Container(
-                    height: sizeCalculator(size.height, 5.67),
-                    width: size.width,
-                    color: colors.inputBackground,
-                    child: Padding(
-                      padding: EdgeInsets.only(
-                          left: sizeCalculator(size.width, 18.26),
-                          right: sizeCalculator(size.width, 18.26),
-                          top: sizeCalculator(size.height, 1.39),
-                          bottom: sizeCalculator(size.height, 1.90)),
-                      child:
-                          const FittedBox(fit: BoxFit.fitWidth, child: Text("Copyright© OpenUI All Rights Reserved.")),
-                    ),
+                  SizedBox(
+                    height: sizeCalculator(size.height, 3.01),
+                    width: sizeCalculator(size.width, 16.26),
+                    child: const FittedBox(fit: BoxFit.fitWidth, child: Text("Contact")),
+                  ),
+                  SizedBox(
+                    height: sizeCalculator(size.height, 3.01),
+                    width: sizeCalculator(size.width, 9.33),
+                    child: const FittedBox(fit: BoxFit.fitWidth, child: Text("Blog")),
                   )
                 ],
               ),
             ),
-          ],
-        ),
+          ),
+          Container(
+            height: sizeCalculator(size.height, 5.67),
+            width: size.width,
+            color: colors.inputBackground,
+            child: Padding(
+              padding: EdgeInsets.only(
+                  left: sizeCalculator(size.width, 18.26),
+                  right: sizeCalculator(size.width, 18.26),
+                  top: sizeCalculator(size.height, 1.39),
+                  bottom: sizeCalculator(size.height, 1.90)),
+              child: const FittedBox(fit: BoxFit.fitWidth, child: Text("Copyright© OpenUI All Rights Reserved.")),
+            ),
+          )
+        ],
       ),
     );
   }
