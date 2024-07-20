@@ -5,8 +5,6 @@ import 'package:fashion_e_commerce_app/core/widgets/app_custom_widgets.dart';
 import 'package:fashion_e_commerce_app/core/widgets/app_images.dart';
 import 'package:flutter/material.dart';
 
-//AppBar
-
 //New Arrival Section
 
 class MainScreenNewArrivalTitle extends StatelessWidget {
