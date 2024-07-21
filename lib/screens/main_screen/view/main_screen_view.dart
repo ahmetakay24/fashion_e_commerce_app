@@ -40,6 +40,10 @@ class MainScreenView extends StatelessWidget {
       ),
     ];
 
+    // Check the bottom padding to determine if the device has a physical home button
+    double bottomPadding = MediaQuery.of(context).viewPadding.bottom;
+    bool hasPhysicalHomeButton = bottomPadding == 0;
+
     return Scaffold(
       appBar: OpenFashionAppBar(
         iconBlackOrWhite: Colors.black,
@@ -128,7 +132,10 @@ class MainScreenView extends StatelessWidget {
               child: MainScreenOpenFashionSection(size: size, colors: colors),
             ),
             MainScreenFollowUsSection(size: size),
-            AppFooter(size: size, colors: colors),
+            Padding(
+              padding: EdgeInsets.only(bottom: hasPhysicalHomeButton ? 0 : sizeCalculator(size.height, 3.52)),
+              child: AppFooter(size: size, colors: colors),
+            ),
           ],
         ),
       ),
