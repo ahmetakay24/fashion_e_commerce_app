@@ -13,6 +13,9 @@ class PageNotFoundView extends StatelessWidget {
     AppColors colors = AppColors();
     DeviceSize size = DeviceSize(context);
 
+    double bottomPadding = MediaQuery.of(context).viewPadding.bottom;
+    bool hasPhysicalHomeButton = bottomPadding == 0;
+
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: OpenFashionAppBar(
@@ -85,9 +88,130 @@ class PageNotFoundView extends StatelessWidget {
                 ),
               ),
             ),
-            //AppFooter will come
+            Padding(
+              padding: EdgeInsets.only(bottom: hasPhysicalHomeButton ? 0 : sizeCalculator(size.height, 3.52)),
+              child: PageNotFoundAppFooter(size: size, colors: colors),
+            ),
           ],
         ),
+      ),
+    );
+  }
+}
+
+class PageNotFoundAppFooter extends StatelessWidget {
+  const PageNotFoundAppFooter({
+    super.key,
+    required this.size,
+    required this.colors,
+  });
+
+  final DeviceSize size;
+  final AppColors colors;
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      color: Colors.white,
+      height: sizeCalculator(size.height, 32.49),
+      width: size.width,
+      child: Column(
+        children: [
+          Padding(
+            padding: EdgeInsets.symmetric(vertical: sizeCalculator(size.height, 2.17)),
+            child: SizedBox(
+                height: sizeCalculator(size.height, 2.17),
+                width: sizeCalculator(size.width, 43.19),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    SizedBox(
+                        height: sizeCalculator(size.height, 2.17),
+                        width: sizeCalculator(size.width, 4.62),
+                        child: const FittedBox(fit: BoxFit.cover, child: AppIcons(icon: "x"))),
+                    SizedBox(
+                        height: sizeCalculator(size.height, 2.17),
+                        width: sizeCalculator(size.width, 4.62),
+                        child: const FittedBox(fit: BoxFit.cover, child: AppIcons(icon: "instagram_vector"))),
+                    SizedBox(
+                        height: sizeCalculator(size.height, 2.17),
+                        width: sizeCalculator(size.width, 4.62),
+                        child: const FittedBox(fit: BoxFit.cover, child: AppIcons(icon: "youtube"))),
+                  ],
+                )),
+          ),
+          Padding(
+              padding: EdgeInsets.only(bottom: sizeCalculator(size.height, 1.69)),
+              child: AppHeaderLine(size: size, colors: colors)),
+          SizedBox(
+            height: sizeCalculator(size.height, 9.67),
+            width: sizeCalculator(size.width, 49.06),
+            child: const Column(
+              children: [
+                Expanded(child: FittedBox(fit: BoxFit.fitWidth, child: Text("support@openui.design"))),
+                Expanded(
+                    child: Row(
+                  children: [
+                    Spacer(),
+                    Expanded(
+                      flex: 4,
+                      child: FittedBox(
+                        fit: BoxFit.fitWidth,
+                        child: Text("+60 825 876"),
+                      ),
+                    ),
+                    Spacer()
+                  ],
+                )),
+                Expanded(child: FittedBox(fit: BoxFit.fitWidth, child: Text("08:00 - 22:00 - Everyday")))
+              ],
+            ),
+          ),
+          Padding(
+              padding:
+                  EdgeInsets.only(top: sizeCalculator(size.height, 1.69), bottom: sizeCalculator(size.height, 2.89)),
+              child: AppHeaderLine(size: size, colors: colors)),
+          Padding(
+            padding: EdgeInsets.only(bottom: sizeCalculator(size.height, 2.08)),
+            child: SizedBox(
+              height: sizeCalculator(size.height, 2.17),
+              width: sizeCalculator(size.width, 65.86),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  SizedBox(
+                    height: sizeCalculator(size.height, 2.17),
+                    width: sizeCalculator(size.width, 12.53),
+                    child: const FittedBox(fit: BoxFit.fitWidth, child: Text("About")),
+                  ),
+                  SizedBox(
+                    height: sizeCalculator(size.height, 2.17),
+                    width: sizeCalculator(size.width, 16.26),
+                    child: const FittedBox(fit: BoxFit.fitWidth, child: Text("Contact")),
+                  ),
+                  SizedBox(
+                    height: sizeCalculator(size.height, 2.17),
+                    width: sizeCalculator(size.width, 9.33),
+                    child: const FittedBox(fit: BoxFit.fitWidth, child: Text("Blog")),
+                  )
+                ],
+              ),
+            ),
+          ),
+          Container(
+            height: sizeCalculator(size.height, 4.09),
+            width: size.width,
+            color: colors.inputBackground,
+            child: Padding(
+              padding: EdgeInsets.only(
+                  left: sizeCalculator(size.width, 18.26),
+                  right: sizeCalculator(size.width, 18.26),
+                  top: sizeCalculator(size.height, 1.00),
+                  bottom: sizeCalculator(size.height, 1.37)),
+              child: const FittedBox(fit: BoxFit.fitWidth, child: Text("Copyright© OpenUI All Rights Reserved.")),
+            ),
+          )
+        ],
       ),
     );
   }
