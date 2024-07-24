@@ -1,4 +1,4 @@
-import 'package:fashion_e_commerce_app/screens/page_not_found/view/page_not_found_view.dart';
+import 'package:fashion_e_commerce_app/screens/blog_list/view/blog_list_view.dart';
 import 'package:fashion_e_commerce_app/theme/app_theme.dart';
 import 'package:flutter/material.dart';
 
@@ -17,7 +17,7 @@ class App extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       theme: theme.themeData,
-      home: const PageNotFoundView(),
+      home: const BlogListView(),
     );
   }
 }

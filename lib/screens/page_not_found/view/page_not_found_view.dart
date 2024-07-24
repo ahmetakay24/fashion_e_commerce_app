@@ -118,7 +118,7 @@ class PageNotFoundAppFooter extends StatelessWidget {
       child: Column(
         children: [
           Padding(
-            padding: EdgeInsets.symmetric(vertical: sizeCalculator(size.height, 2.17)),
+            padding: EdgeInsets.symmetric(vertical: sizeCalculator(size.height, 1.9743)),
             child: SizedBox(
                 height: sizeCalculator(size.height, 2.17),
                 width: sizeCalculator(size.width, 43.19),
@@ -141,7 +141,7 @@ class PageNotFoundAppFooter extends StatelessWidget {
                 )),
           ),
           Padding(
-              padding: EdgeInsets.only(bottom: sizeCalculator(size.height, 1.69)),
+              padding: EdgeInsets.only(bottom: sizeCalculator(size.height, 1.5376)),
               child: AppHeaderLine(size: size, colors: colors)),
           SizedBox(
             height: sizeCalculator(size.height, 9.67),
@@ -168,11 +168,11 @@ class PageNotFoundAppFooter extends StatelessWidget {
             ),
           ),
           Padding(
-              padding:
-                  EdgeInsets.only(top: sizeCalculator(size.height, 1.69), bottom: sizeCalculator(size.height, 2.89)),
+              padding: EdgeInsets.only(
+                  top: sizeCalculator(size.height, 1.5376), bottom: sizeCalculator(size.height, 2.6293)),
               child: AppHeaderLine(size: size, colors: colors)),
           Padding(
-            padding: EdgeInsets.only(bottom: sizeCalculator(size.height, 2.08)),
+            padding: EdgeInsets.only(bottom: sizeCalculator(size.height, 1.8924)),
             child: SizedBox(
               height: sizeCalculator(size.height, 2.17),
               width: sizeCalculator(size.width, 65.86),
@@ -204,10 +204,10 @@ class PageNotFoundAppFooter extends StatelessWidget {
             color: colors.inputBackground,
             child: Padding(
               padding: EdgeInsets.only(
-                  left: sizeCalculator(size.width, 18.26),
-                  right: sizeCalculator(size.width, 18.26),
-                  top: sizeCalculator(size.height, 1.00),
-                  bottom: sizeCalculator(size.height, 1.37)),
+                  left: sizeCalculator(size.width, 16.6128),
+                  right: sizeCalculator(size.width, 16.6128),
+                  top: sizeCalculator(size.height, 0.9098),
+                  bottom: sizeCalculator(size.height, 1.2464)),
               child: const FittedBox(fit: BoxFit.fitWidth, child: Text("Copyright© OpenUI All Rights Reserved.")),
             ),
           )
@@ -216,3 +216,5 @@ class PageNotFoundAppFooter extends StatelessWidget {
     );
   }
 }
+
+//%2.4 oranında azaltmayı dene
