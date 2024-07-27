@@ -1,6 +1,8 @@
 import 'package:fashion_e_commerce_app/core/colors/core_app_colors.dart';
 import 'package:fashion_e_commerce_app/core/size/device_size.dart';
 import 'package:fashion_e_commerce_app/core/widgets/app_images.dart';
+import 'package:fashion_e_commerce_app/resources/texts/october_collection/october_collection_images.dart';
+import 'package:fashion_e_commerce_app/resources/texts/october_collection/october_collection_texts.dart';
 import 'package:flutter/material.dart';
 
 class OctoberCollection1 extends StatelessWidget {
@@ -8,10 +10,14 @@ class OctoberCollection1 extends StatelessWidget {
     super.key,
     required this.size,
     required this.colors,
+    required this.textsEnglish,
+    required this.octoberCollectionImages,
   });
 
   final DeviceSize size;
   final AppColors colors;
+  final OctoberCollectionTextsEnglish textsEnglish;
+  final OctoberCollectionImages octoberCollectionImages;
 
   @override
   Widget build(BuildContext context) {
@@ -24,7 +30,7 @@ class OctoberCollection1 extends StatelessWidget {
           SizedBox(
             height: sizeCalculator(size.height, 15.72),
             width: sizeCalculator(size.width, 43.46),
-            child: const AppStickers(stickers: "10"),
+            child: AppStickers(stickers: octoberCollectionImages.numberImageOfTitle),
           ),
           Padding(
             padding: EdgeInsets.only(
@@ -34,10 +40,10 @@ class OctoberCollection1 extends StatelessWidget {
             child: SizedBox(
               height: sizeCalculator(size.height, 6.6),
               width: sizeCalculator(size.width, 43.54),
-              child: const FittedBox(
+              child: FittedBox(
                 fit: BoxFit.fitWidth,
                 child: AppStickers(
-                  stickers: "october_text",
+                  stickers: octoberCollectionImages.nameImageOfTitle,
                 ),
               ),
             ),
@@ -50,11 +56,11 @@ class OctoberCollection1 extends StatelessWidget {
             child: SizedBox(
               height: sizeCalculator(size.height, 3.65),
               width: sizeCalculator(size.width, 38.82),
-              child: const FittedBox(
+              child: FittedBox(
                   fit: BoxFit.fitWidth,
                   child: Text(
-                    "COLLECTION",
-                    style: TextStyle(color: Colors.white),
+                    textsEnglish.collectionWithUpperCase,
+                    style: const TextStyle(color: Colors.white),
                   )),
             ),
           ),
@@ -63,10 +69,10 @@ class OctoberCollection1 extends StatelessWidget {
             child: SizedBox(
               height: sizeCalculator(size.height, 57.28),
               width: sizeCalculator(size.width, 91.46),
-              child: const FittedBox(
+              child: FittedBox(
                 fit: BoxFit.cover,
                 child: AppBanner(
-                  banner: "october_1_image",
+                  banner: octoberCollectionImages.imageOfCollection1,
                 ),
               ),
             ),
@@ -78,8 +84,8 @@ class OctoberCollection1 extends StatelessWidget {
               widthOfName: sizeCalculator(size.width, 51.81),
               size: size,
               colors: colors,
-              numberText: "01",
-              collectionName: "OCTOBER COLLECTION",
+              numberText: textsEnglish.numberOfCollection1,
+              collectionName: textsEnglish.nameOfCollection1WithUpperCase,
             ),
           ),
         ],
@@ -93,10 +99,14 @@ class OctoberCollection2 extends StatelessWidget {
     super.key,
     required this.size,
     required this.colors,
+    required this.textsEnglish,
+    required this.octoberCollectionImages,
   });
 
   final DeviceSize size;
   final AppColors colors;
+  final OctoberCollectionTextsEnglish textsEnglish;
+  final OctoberCollectionImages octoberCollectionImages;
 
   @override
   Widget build(BuildContext context) {
@@ -108,7 +118,7 @@ class OctoberCollection2 extends StatelessWidget {
           SizedBox(
             height: sizeCalculator(size.height, 57.28),
             width: sizeCalculator(size.width, 91.46),
-            child: const FittedBox(fit: BoxFit.cover, child: AppBanner(banner: "october_2_image")),
+            child: FittedBox(fit: BoxFit.cover, child: AppBanner(banner: octoberCollectionImages.imageOfCollection2)),
           ),
           Padding(
             padding: EdgeInsets.only(top: sizeCalculator(size.height, 1.06)),
@@ -117,8 +127,8 @@ class OctoberCollection2 extends StatelessWidget {
                 widthOfName: sizeCalculator(size.width, 45.14),
                 size: size,
                 colors: colors,
-                numberText: "02",
-                collectionName: "BLACK COLLECTION"),
+                numberText: textsEnglish.numberOfCollection2,
+                collectionName: textsEnglish.nameOfCollection2WithUpperCase),
           )
         ],
       ),
@@ -131,10 +141,14 @@ class OctoberCollection3 extends StatelessWidget {
     super.key,
     required this.size,
     required this.colors,
+    required this.textsEnglish,
+    required this.octoberCollectionImages,
   });
 
   final DeviceSize size;
   final AppColors colors;
+  final OctoberCollectionTextsEnglish textsEnglish;
+  final OctoberCollectionImages octoberCollectionImages;
 
   @override
   Widget build(BuildContext context) {
@@ -146,7 +160,7 @@ class OctoberCollection3 extends StatelessWidget {
           SizedBox(
             height: sizeCalculator(size.height, 57.28),
             width: sizeCalculator(size.width, 91.46),
-            child: const FittedBox(fit: BoxFit.cover, child: AppBanner(banner: "october_3_image")),
+            child: FittedBox(fit: BoxFit.cover, child: AppBanner(banner: octoberCollectionImages.imageOfCollection3)),
           ),
           Padding(
             padding: EdgeInsets.only(top: sizeCalculator(size.height, 1.06)),
@@ -155,8 +169,8 @@ class OctoberCollection3 extends StatelessWidget {
                 widthOfName: sizeCalculator(size.width, 35.81),
                 size: size,
                 colors: colors,
-                numberText: "03",
-                collectionName: "HAE BY HAEKIM"),
+                numberText: textsEnglish.numberOfCollection3,
+                collectionName: textsEnglish.nameOfCollection3WithUpperCase),
           )
         ],
       ),

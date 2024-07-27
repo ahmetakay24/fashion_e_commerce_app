@@ -1,7 +1,7 @@
 import 'package:fashion_e_commerce_app/core/colors/core_app_colors.dart';
 import 'package:fashion_e_commerce_app/core/size/device_size.dart';
 import 'package:fashion_e_commerce_app/core/widgets/app_custom_widgets.dart';
-import 'package:fashion_e_commerce_app/resources/texts/main_screen/main_screen_texts_english.dart';
+import 'package:fashion_e_commerce_app/resources/texts/main_screen/main_screen_texts.dart';
 import 'package:fashion_e_commerce_app/screens/main_screen/model/main_screen_models.dart';
 import 'package:fashion_e_commerce_app/screens/main_screen/view/widgets/sections/main_screen_sections.dart';
 import 'package:fashion_e_commerce_app/screens/main_screen/view/widgets/builders/main_screen_builders.dart';
@@ -40,7 +40,6 @@ class MainScreenView extends StatelessWidget {
       ),
     ];
 
-    // Check the bottom padding to determine if the device has a physical home button
     double bottomPadding = MediaQuery.of(context).viewPadding.bottom;
     bool hasPhysicalHomeButton = bottomPadding == 0;
 

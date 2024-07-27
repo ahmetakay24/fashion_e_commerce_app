@@ -1,7 +1,7 @@
 import 'package:fashion_e_commerce_app/core/colors/core_app_colors.dart';
 import 'package:fashion_e_commerce_app/core/size/device_size.dart';
 import 'package:fashion_e_commerce_app/core/widgets/app_images.dart';
-import 'package:fashion_e_commerce_app/resources/texts/main_screen/main_screen_texts_english.dart';
+import 'package:fashion_e_commerce_app/resources/texts/main_screen/main_screen_texts.dart';
 import 'package:flutter/material.dart';
 
 class MainScreenExploreMoreButton extends StatelessWidget {

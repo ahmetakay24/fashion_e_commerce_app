@@ -1,4 +1,4 @@
-import 'package:fashion_e_commerce_app/screens/blog_list/view/blog_list_view.dart';
+import 'package:fashion_e_commerce_app/screens/main_screen/view/main_screen_view.dart';
 import 'package:fashion_e_commerce_app/theme/app_theme.dart';
 import 'package:flutter/material.dart';
 
@@ -14,10 +14,13 @@ class App extends StatelessWidget {
     //Theme Class
     AppTheme theme = AppTheme(context);
 
+    /*AppColors colors = AppColors();
+    DeviceSize size = DeviceSize(context);*/
+
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       theme: theme.themeData,
-      home: const BlogListView(),
+      home: const MainScreenView(),
     );
   }
 }
