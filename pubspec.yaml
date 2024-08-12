@@ -47,6 +47,12 @@ dependencies:
   auto_size_text: ^3.0.0
   url_launcher: ^6.3.0
 
+  #State
+  flutter_bloc: ^8.1.6
+
+  #Service
+  dio: ^5.5.0+1
+
 dev_dependencies:
   flutter_test:
     sdk: flutter
