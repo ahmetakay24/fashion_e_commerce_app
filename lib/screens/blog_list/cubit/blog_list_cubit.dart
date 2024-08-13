@@ -6,7 +6,9 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 part 'blog_list_state.dart';
 
 class BlogListCubit extends Cubit<BlogListState> {
-  BlogListCubit() : super(BlogListLoading());
+  BlogListCubit() : super(BlogListLoading()) {
+    fetchPosts();
+  }
 
   final BlogListService service = BlogListService();
 
