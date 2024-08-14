@@ -11,6 +11,7 @@ class AppTheme {
   AppTheme(this.context) {
     size = DeviceSize(context);
     themeData = ThemeData(
+      scaffoldBackgroundColor: Colors.white,
       fontFamily: "TenorSans",
       textTheme: TextTheme(
         titleLarge: TextStyle(

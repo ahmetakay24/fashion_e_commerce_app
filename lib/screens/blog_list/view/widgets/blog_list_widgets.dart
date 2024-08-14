@@ -30,8 +30,6 @@ class BlogListTitle extends StatelessWidget {
   }
 }
 
-//date kısmı fixlenicek
-
 class BlogListTagsSection extends StatelessWidget {
   const BlogListTagsSection({
     super.key,
@@ -154,7 +152,10 @@ class BlogListListViewBuilder extends StatelessWidget {
                         SizedBox(
                           height: sizeCalculator(size.height, 2.50),
                           width: sizeCalculator(size.width, 16.53),
-                          child: AutoSizeText(posts[index].date ?? "Data Empty"),
+                          child: AutoSizeText(
+                            posts[index].date ?? "Data Empty",
+                            presetFontSizes: const [16, 15, 14, 13, 12, 11, 10, 9, 8],
+                          ),
                         ),
                       ],
                     ),

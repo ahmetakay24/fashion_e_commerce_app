@@ -45,6 +45,8 @@ dependencies:
 
   #Text
   auto_size_text: ^3.0.0
+
+  #Launcher
   url_launcher: ^6.3.0
 
   #State
